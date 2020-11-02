@@ -15,6 +15,7 @@
         "python.showStartPage": false
 	},
 	"extensions": [
-        "ms-python.python"
+        "ms-python.python",
+        "lextudio.restructuredtext"
 	]
 }
