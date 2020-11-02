@@ -31,4 +31,3 @@ wget
 
 # for codespaces env
 pylint
-sphinx-autobuild
