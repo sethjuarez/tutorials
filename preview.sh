@@ -5,4 +5,6 @@ sphinx-autobuild --ignore "*.png" \
                  --ignore "intermediate/*" \
                  --ignore "prototype/*" \
                  --ignore "recipes/*" \
+                 --ignore "*.zip" \
+                 --ignore "*.ipynb" \
                  -D plot_gallery=0 -b html "." "_build/html"
