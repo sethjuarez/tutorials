@@ -9,7 +9,7 @@ on:
         - seth-blitz
 
 jobs:
-  hugo:
+  tutorial-staging:
     runs-on: ubuntu-latest
     env:
         WEB_PATH: $web
