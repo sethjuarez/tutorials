@@ -21,7 +21,7 @@
 # Iterating through a Dataset
 #################################################################
 # 
-# Once we have a Dataset we can index it manually like a list ```clothing[index]```. 
+# Once we have a Dataset we can index it manually like a list *clothing[index]*. 
 # 
 # Here is an example of how to load the fashion MNIST dataset from torch vision.
 # 
@@ -156,7 +156,7 @@ def __getitem__(self, idx):
 # * Suffling 
 # * Parallel batch distribution 
 # 
-# The PyTorch Dataloader ```torch.utils.data.DataLoader``` is an iterator that handles all of this complexity for us enabling us to load a dataset and focusing on train our model.
+# The PyTorch Dataloader *torch.utils.data.DataLoader* is an iterator that handles all of this complexity for us enabling us to load a dataset and focusing on train our model.
 #
 # dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 
