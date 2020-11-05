@@ -49,7 +49,7 @@ test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pi
 
 
 ######################################################################
-# More details `DataSet and DataLoader <quickstart/data_tutorial.html>`_
+# More details `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
 #
 # More details `Tensors <quickstart/tensor_tutorial.html>`_
 # 
@@ -193,7 +193,7 @@ with torch.no_grad():
 # More help with the FashionMNIST Pytorch Blitz
 # `Tensors <quickstart/tensor_tutorial.html>`_
 #
-# `DataSets and DataLoaders <quickstart/data_tutorial.html>`_
+# `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
 #
 # `Transformations <quickstart/transforms_tutorial.html>`_
 #
