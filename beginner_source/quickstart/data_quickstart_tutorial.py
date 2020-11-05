@@ -1,9 +1,11 @@
 """
 Datasets & Dataloaders
+===================
 """
 #################################################################
 # Getting Started With Data in PyTorch
-# 
+#################################################################
+#
 # Before we can even think about building a model with PyTorch, we need to first learn how to load and process data. Data can be sourced from local files, cloud datastores and database queries. It comes in all sorts of forms and formats from structured tables to image, audio, text, video files and more. 
 # 
 # ADD IMAGE HERE /images/typesofdata.PNG
@@ -18,7 +20,8 @@ Datasets & Dataloaders
 #  * `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>_`
 #  * `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
 #  * `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
-# 
+#
+#################################################################
 # Iterating through a Dataset
 #################################################################
 # 
@@ -48,9 +51,9 @@ for i in range(1, cols*rows +1):
 plt.show()
 
 #################################################################
-# 
 # Add Image Here
 #
+#################################################################
 # Creating a Custom Dataset
 #################################################################
 #
@@ -88,8 +91,6 @@ class CustomImageDataset(Dataset):
         return sample 
         
 #################################################################
-# Lets break down whats happening in this sample implementaion of a PyTorch Dataset function by function.
-# 
 # Imports 
 #################################################################
 # 
@@ -101,6 +102,7 @@ import torch
 import pandas as pd
 from torchvision.io import read_image
 from torch.utils.data import Dataset
+from torch.utils.data import DataLoader
 
 #################################################################
 # Init
@@ -158,19 +160,19 @@ def __getitem__(self, idx):
 # * Parallel batch distribution 
 # 
 # The PyTorch Dataloader *torch.utils.data.DataLoader* is an iterator that handles all of this complexity for us enabling us to load a dataset and focusing on train our model.
-#
-# dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
+
+dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 
 #################################################################
 # With this we have all we need to know to load an process data of any kind in PyTorch to train deep learning models.
 # 
-# 
+##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-#################################################################
-# `Tensors <>`_
-# `DataSets and DataLoaders <>`_
-# `Transformations <>`_
-# `Choosing Model <>`_
-# `Optimization Loop <>`_
-# `AutoGrad <>`_
+##################################################################
+# `Tensors <tensor_quickstart_tutorial.html>`_
+# `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+# `Transformations <transforms_tutorial.html>`_
+# `Build Model <build_model_tutorial.html>`_
+# `Optimization Loop <optimization_tutorial.html>`_
+# `AutoGrad <autograd_quickstart_tutorial.html>`_
 # `Back to FashionMNIST main code base <>`_
