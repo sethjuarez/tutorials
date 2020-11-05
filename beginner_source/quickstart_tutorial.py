@@ -141,6 +141,9 @@ print('Done!')
 ######################################################################
 # More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
 #
+# More details `automatic differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
+#
+#
 # Saving Models
 # -------------
 # 
@@ -199,7 +202,9 @@ with torch.no_grad():
 #
 # `Building the Model <quickstart/build_model_tutorial.html>`_
 #
-# `Optimization Loop and AutoGrad <quickstart/optimization_tutorial.html>`_
+# `Automatic Differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
+#
+# `Optimization Loop <quickstart/optimization_tutorial.html>`_
 #
 # `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
 #
