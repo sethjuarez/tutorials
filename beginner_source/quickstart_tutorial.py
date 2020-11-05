@@ -2,13 +2,7 @@
 PyTorch Quickstart
 ===================
 
-The basic machine learning concepts in any framework should include:
-
-1. Working with data
-2. Creating models
-3. Optimizing Parameters
-4. Saving Models
-5. Loading Models
+The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models
 
 """
 
@@ -27,11 +21,8 @@ from torchvision import datasets, transforms
 # These ``DataSet`` objects include a ``transforms`` mechanism to
 # modify data in-place. 
 
-
-# image classes
 classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
 
-# data used for training
 training_data = datasets.FashionMNIST('data', train=True, download=True,
     transform=transforms.Compose([transforms.ToTensor()]),
     target_transform=transforms.Compose([
@@ -39,7 +30,6 @@ training_data = datasets.FashionMNIST('data', train=True, download=True,
     ])
 )
 
-# data used for testing
 test_data = datasets.FashionMNIST('data', train=False, download=True,
     transform=transforms.Compose([transforms.ToTensor()]),
     target_transform=transforms.Compose([
@@ -59,7 +49,9 @@ test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pi
 
 
 ######################################################################
-# More details `DataSet, DataLoader, and transforms <quickstart/data_tutorial.html>`_
+# More details `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
+#
+# More details `Tensors <quickstart/tensor_tutorial.html>`_
 # 
 # Creating Models
 # ---------------
@@ -85,6 +77,8 @@ model = nn.Sequential(
 print(model)
 
 ######################################################################
+# More details `on building the model <quickstart/build_model_tutorial.html>`_
+#
 # Optimizing Parameters
 # ---------------------
 # 
@@ -145,6 +139,8 @@ for t in range(epochs):
 print('Done!')
 
 ######################################################################
+# More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
+#
 # Saving Models
 # -------------
 # 
@@ -161,6 +157,8 @@ onnx.export(model, x, 'model.onnx')
 print('Saved onnx model to model.onnx')
 
 ######################################################################
+# More details `Saving loading and running <quickstart/save_load_run_tutorial.html>`_
+#
 # Loading Models
 # ----------------------------
 # 
@@ -190,4 +188,19 @@ with torch.no_grad():
     predicted, actual = classes[pred[0].argmax(0)], classes[y.argmax(0)]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
+######################################################################
+#
+# More help with the FashionMNIST Pytorch Blitz
+# `Tensors <quickstart/tensor_tutorial.html>`_
+#
+# `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
+#
+# `Transformations <quickstart/transforms_tutorial.html>`_
+#
+# `Building the Model <quickstart/build_model_tutorial.html>`_
+#
+# `Optimization Loop and AutoGrad <quickstart/optimization_tutorial.html>`_
+#
+# `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
+#
 
