@@ -50,9 +50,10 @@ test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pi
 
 ######################################################################
 # More details `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
+# More details `Tensors <quickstart/tensor_quickstart_tutorial.html>`_
+# More details  `Transformations <transforms_tutorial.html>`_
 #
-# More details `Tensors <quickstart/tensor_tutorial.html>`_
-# 
+#
 # Creating Models
 # ---------------
 # 
@@ -140,6 +141,7 @@ print('Done!')
 
 ######################################################################
 # More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
+# More deatils `AutoGrad <autograd_quickstart_tutorial.html>`_
 #
 # Saving Models
 # -------------
@@ -188,19 +190,13 @@ with torch.no_grad():
     predicted, actual = classes[pred[0].argmax(0)], classes[y.argmax(0)]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
-######################################################################
-#
+##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-# `Tensors <quickstart/tensor_tutorial.html>`_
-#
-# `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
-#
-# `Transformations <quickstart/transforms_tutorial.html>`_
-#
-# `Building the Model <quickstart/build_model_tutorial.html>`_
-#
-# `Optimization Loop and AutoGrad <quickstart/optimization_tutorial.html>`_
-#
-# `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
-#
+##################################################################
+# `Tensors <tensor_quickstart_tutorial.html>`_
+# `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+# `Transformations <transforms_tutorial.html>`_
+# `Build Model <build_model_tutorial.html>`_
+# `Optimization Loop <optimization_tutorial.html>`_
+# `AutoGrad <autograd_quickstart_tutorial.html>`_
 
