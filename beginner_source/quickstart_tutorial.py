@@ -143,6 +143,9 @@ print('Done!')
 # More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
 # More deatils `AutoGrad <autograd_quickstart_tutorial.html>`_
 #
+# More details `automatic differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
+#
+#
 # Saving Models
 # -------------
 # 
@@ -190,3 +193,13 @@ with torch.no_grad():
     predicted, actual = classes[pred[0].argmax(0)], classes[y.argmax(0)]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
+##################################################################
+# More help with the FashionMNIST Pytorch Blitz
+##################################################################
+# `Tensors <quickstart/tensor_tutorial.html>`_
+# `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
+# `Transformations <quickstart/transforms_tutorial.html>`_
+# `Building the Model <quickstart/build_model_tutorial.html>`_
+# `Automatic Differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
+# `Optimization Loop <quickstart/optimization_tutorial.html>`_
+# `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
