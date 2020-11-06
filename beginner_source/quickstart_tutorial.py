@@ -195,11 +195,11 @@ with torch.no_grad():
 
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-##################################################################
-# `Tensors <quickstart/tensor_tutorial.html>`_
-# `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
-# `Transformations <quickstart/transforms_tutorial.html>`_
-# `Building the Model <quickstart/build_model_tutorial.html>`_
-# `Automatic Differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
-# `Optimization Loop <quickstart/optimization_tutorial.html>`_
-# `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
+# ----------------------------------------
+# | `Tensors <tensor_quickstart_tutorial.html>`_
+# | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+# | `Transformations <transforms_tutorial.html>`_
+# | `Build Model <build_model_tutorial.html>`_
+# | `Optimization Loop <optimization_tutorial.html>`_
+# | `AutoGrad <autograd_quickstart_tutorial.html>`_
+# | `Back to FashionMNIST main code base <>`_
