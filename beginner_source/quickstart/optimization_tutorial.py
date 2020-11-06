@@ -17,7 +17,7 @@ Let's dissect these concepts one by one and look at some code at the end we'll s
 
 ######################################################
 # Hyperparameters 
-######################################################
+# -----------------
 #
 #Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
 #
@@ -32,7 +32,7 @@ epochs = 5
 
 ######################################################
 # Optimizaton Loops
-######################################################
+# -----------------
 # Once we set our hyperparameters we can then optimize our our model with optimization loops.
 # 
 # The optimziation loop is comprized of three main subloops in PyTorch. 
@@ -56,7 +56,7 @@ for epoch in range(num_epochs): # Optimization Loop
 
 ######################################################
 # Loss
-# ###################################################### 
+# -----------------
 #The loss is the value used to update our parameters. To calculate the loss we make a prediction using the inputs of our given data sample. 
 #
 
@@ -65,7 +65,7 @@ loss = cost_function(preds, labels)
 
 ######################################################
 # AutoGrad and Optimizer (We might want to split this when we go more in depth on autograd )
-######################################################
+# -----------------
 # By default each tensor maintains a graph of every operation applied on it unless otherwise specified using the torch.no_grad() command. 
 #
 # `Autograd graph <https://discuss.pytorch.org/uploads/default/original/1X/c7e0a44b7bcebfb41315b56f8418ce37f0adbfeb.png>`_
@@ -81,7 +81,7 @@ optimizer.step()
 
 ######################################################
 # Putting it all together lets look at a basic optimization loop
-######################################################
+# -----------------
 #
 #
 # 
@@ -101,7 +101,7 @@ optimizer.step()
 
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-##################################################################
+# -----------------
 # `Tensors <tensor_quickstart_tutorial.html>`_
 # `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 # `Transformations <transforms_tutorial.html>`_
