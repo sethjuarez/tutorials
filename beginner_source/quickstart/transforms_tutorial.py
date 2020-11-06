@@ -37,7 +37,7 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
 
 ##############################################
 # Pytorch Datasets
-##############################################
+# --------------------------
 # 
 # We are using the built-in open FashionMNIST datasets from the PyTorch library. For more info on the Datasets and Loaders check out [this]() resource. The `Train=True`indicates we want to download the training dataset from the built-in datasets, `Train=False` indicates to download the testing dataset. This way we have data partitioned out for training and testing within the provided PyTorch datasets. We will apply the same transfoms to both the training and testing datasets.
 # 
@@ -47,7 +47,7 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
 
 ##############################################
 # Transform: Features
-##############################################
+# ---------------------------
 # Example:
 #
 
@@ -65,7 +65,7 @@ transform=transforms.Compose([transforms.ToTensor()])
 
 ##############################################
 # Target_Transform: Labels
-##############################################
+# -------------------------------
 #
 #Example:
 
@@ -78,7 +78,7 @@ target_transform= transforms.Lambda(lambda y: torch.zeros(10, dtype=torchfloat).
 
 ##############################################
 # Using your own data 
-##############################################
+# --------------------------------------
 # Below is an example for processing image data using a dataset from a local directory.
 #
 #Example:
@@ -113,18 +113,16 @@ dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 
 class_names = image_datasets['train'].classes
 
-##################################################
-# Full Source for this examples:  [FoodAI](https://github.com/sethjuarez/FoodAI)<br>
-#
+
 ##################################################
 # Resources
-##################################################
+#-------------------------------------------
 #Check out the other TorchVision Transforms available: https://pytorch.org/docs/stable/torchvision/transforms.html
 #
 #
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-##################################################################
+# ----------------------------------------
 # `Tensors <tensor_quickstart_tutorial.html>`_
 # `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 # `Transformations <transforms_tutorial.html>`_

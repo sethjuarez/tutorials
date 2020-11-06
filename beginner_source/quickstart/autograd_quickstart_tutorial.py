@@ -5,7 +5,7 @@ Autograd
 
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-##################################################################
+# ----------------------
 # `Tensors <tensor_quickstart_tutorial.html>`_
 # `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 # `Transformations <transforms_tutorial.html>`_
