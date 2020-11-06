@@ -4,7 +4,7 @@ Datasets & Dataloaders
 """
 #################################################################
 # Getting Started With Data in PyTorch
-#################################################################
+# -----------------
 #
 # Before we can even think about building a model with PyTorch, we need to first learn how to load and process data. Data can be sourced from local files, cloud datastores and database queries. It comes in all sorts of forms and formats from structured tables to image, audio, text, video files and more. 
 # 
@@ -23,7 +23,7 @@ Datasets & Dataloaders
 #
 #################################################################
 # Iterating through a Dataset
-#################################################################
+# -----------------
 # 
 # Once we have a Dataset we can index it manually like a list *clothing[index]*. 
 # 
@@ -55,7 +55,7 @@ plt.show()
 #
 #################################################################
 # Creating a Custom Dataset
-#################################################################
+# -----------------
 #
 # To work with your own data lets look at the a simple custom image Dataset implementation:
 
@@ -92,7 +92,7 @@ class CustomImageDataset(Dataset):
         
 #################################################################
 # Imports 
-#################################################################
+# -----------------
 # 
 # Import os for file handling, torch for PyTorch, [pandas](https://pandas.pydata.org/) for loading labels, [torch vision](https://pytorch.org/blog/pytorch-1.7-released/) to read image files, and Dataset to implement the Dataset interface.
 # 
@@ -106,8 +106,8 @@ from torch.utils.data import DataLoader
 
 #################################################################
 # Init
-#################################################################
-# 
+# -----------------
+## 
 # The init function is used for all the first time operations when our Dataset is loaded. In this case we use it to load our annotation labels to memory and the keep track of directory of our image file. Note that different types of data can take different init inputs you are not limited to just an annotations file, directory_path and transforms but for images this is a standard practice.
 # 
 # Example:
@@ -120,7 +120,8 @@ def __init__(self, annotations_file, img_dir, transform=None):
 
 #################################################################
 # __len__
-#################################################################
+# -----------------
+#
 # The __len__ function is very simple here we just need to return the number of samples in our dataset. 
 # 
 # Example:
@@ -130,7 +131,8 @@ def __len__(self):
 
 #################################################################
 # __getitem__
-#################################################################
+# -----------------
+#
 # The __getitem__ function is the most important function in the Datasets interface this. It takes a tensor or an index as input and returns a loaded sample from you dataset at from the given indecies.
 # 
 # In this sample if provided a tensor we convert the tensor to a list containing our index. We then load the file at the given index from our image directory as well as the image label from our pandas annotations DataFrame. This image and label are then wrapped in a single sample dictionary which we can apply a Transform on and return. To learn more about Transforms see the next section of the Blitz. 
@@ -150,7 +152,7 @@ def __getitem__(self, idx):
 
 #################################################################
 # Preparing your data for training with DataLoaders
-#################################################################
+# -----------------
 #
 # Now we have a organized mechansim for managing data which is great, but there is still a lot of manual work we would have to do train a model with our Dataset. 
 # 
@@ -168,11 +170,12 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 # 
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
-##################################################################
-# `Tensors <tensor_quickstart_tutorial.html>`_
-# `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# `Transformations <transforms_tutorial.html>`_
-# `Build Model <build_model_tutorial.html>`_
-# `Optimization Loop <optimization_tutorial.html>`_
-# `AutoGrad <autograd_quickstart_tutorial.html>`_
-# `Back to FashionMNIST main code base <>`_
+# -----------------
+#
+#| `Tensors <tensor_quickstart_tutorial.html>`_
+#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+#| `Transformations <transforms_tutorial.html>`_
+#| `Build Model <build_model_tutorial.html>`_
+#| `Optimization Loop <optimization_tutorial.html>`_
+#| `AutoGrad <autograd_quickstart_tutorial.html>`_
+#| `Back to FashionMNIST main code base <>`_
