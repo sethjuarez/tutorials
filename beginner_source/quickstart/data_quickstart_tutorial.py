@@ -8,7 +8,8 @@ Datasets & Dataloaders
 #
 # Before we can even think about building a model with PyTorch, we need to first learn how to load and process data. Data can be sourced from local files, cloud datastores and database queries. It comes in all sorts of forms and formats from structured tables to image, audio, text, video files and more. 
 # 
-# ADD IMAGE HERE /images/typesofdata.PNG
+# .. figure:: /images/typesofdata.PNG
+#    :alt:
 # 
 # Different data types require different python libraries to load and process such as `openCV <https://opencv.org/>`_ and `PIL <https://pillow.readthedocs.io/en/stable/reference/Image.html>`_ for images, `NLTK <https://www.nltk.org/>`_ and `spaCy <https://spacy.io/>`_ for text and `Librosa <https://librosa.org/doc/latest/index.html>`_ for audio. 
 # 
@@ -51,7 +52,8 @@ for i in range(1, cols*rows +1):
 plt.show()
 
 #################################################################
-# Add Image Here
+# .. figure:: /images/fashion_mnist.PNG
+#    :alt:
 #
 #################################################################
 # Creating a Custom Dataset
