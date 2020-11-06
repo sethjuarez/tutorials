@@ -36,8 +36,10 @@ epochs = 5
 # Once we set our hyperparameters we can then optimize our our model with optimization loops.
 # 
 # The optimziation loop is comprized of three main subloops in PyTorch. 
-# ![](../images/optimization_loops.PNG)
-# 
+#
+# .. figure:: /images/optimization_loops.PNG
+#    :alt:
+# add 
 #  1. The Train Loop -  Core loop iterates over all the epochs 
 #  2. The Validation Loop - Validate  loss after each weight parameter update and can be used to gauge hyper parameter performance and update them for the next batch. 
 #  3. The Test Loop - is used to evaluate our models performance after each epoch on traditional metrics to show how much our model is generalizing from the train and validation dataset to the test dataset it's never seen before.  
