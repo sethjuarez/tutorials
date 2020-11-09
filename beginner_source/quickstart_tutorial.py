@@ -141,8 +141,6 @@ print('Done!')
 
 ######################################################################
 # More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
-# More deatils `AutoGrad <autograd_quickstart_tutorial.html>`_
-#
 # More details `automatic differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
 #
 #
@@ -201,5 +199,5 @@ with torch.no_grad():
 # | `Transformations <transforms_tutorial.html>`_
 # | `Build Model <build_model_tutorial.html>`_
 # | `Optimization Loop <optimization_tutorial.html>`_
-# | `AutoGrad <autograd_quickstart_tutorial.html>`_
+# | `AutoGrad <autograd_tutorial.html>`_
 # | `Back to FashionMNIST main code base <>`_
