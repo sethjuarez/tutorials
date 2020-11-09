@@ -6,10 +6,15 @@ The data has been loaded and transformed we can now build the model. We will lev
 
 In the below example, for our FashionMNIT image dataset, we are using a `Sequential` container from class `torch.nn.Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ that allows us to define the model layers inline. The neural network modules layers will be added to it in the order they are passed in.
 
-Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. We will break down each of these step of the model below.
+Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. 
 
-Inline nn.Sequential Example:
+We will break down the model below.
 """
+#############################################
+# Inline nn.Sequential Example:
+# ----------------------------
+#
+
 import os
 import torch
 import torch.nn as nn
@@ -34,9 +39,11 @@ model = nn.Sequential(
     
 print(model)
 
-"""
-Class nn.Module Example:
-"""
+#############################################
+# Class nn.Module Example:
+# --------------------------
+#
+
 class Model(nn.Module):
     def __init__(self, x):
         super(Model, self).__init__()
@@ -56,6 +63,7 @@ class Model(nn.Module):
 # Here we check to see if `torch.cuda <https://pytorch.org/docs/stable/notes/cuda.html>`_ is available to use the GPU, else we will use the CPU. 
 #
 # Example:
+#
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Using {} device'.format(device))
@@ -64,17 +72,18 @@ print('Using {} device'.format(device))
 # The Model Module Layers
 # -------------------------
 #
-#
 # Lets break down each model layer in the FashionMNIST model.
 #
+
 ##################################################
-# [nn.Flatten](https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html) to reduce tensor dimensions to one.
-# 
-# From the docs:
-# ```
-# torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)
-# ```
+# `nn.Flatten <https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html>`_ to reduce tensor dimensions to one.
+# -----------------------------------------------
 #
+# From the docs:
+#
+ 
+torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)
+
 #Here is an example using one of the training_data set items:
 tensor = training_data[0][0]
 print(tensor.size())
@@ -87,15 +96,16 @@ model = nn.Sequential(
 flattened_tensor = model(tensor)
 flattened_tensor.size()
 
-#vOutput: torch.Size([1, 784])
+# Output: torch.Size([1, 784])
 
 ##############################################
-# [nn.Linear](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html) to add a linear layer to the model.
+# `nn.Linear <https://pytorch.org/docs/stable/generated/torch.nn.Linear.html>`_ to add a linear layer to the model.
+# -------------------------------
 #
 # Now that we have flattened our tensor dimension we will apply a linear layer transform that will calculate/learn the weights and the bias.
 #
 # From the docs:
-# ```
+# 
 # torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)
 # 
 # in_features – size of each input sample
@@ -122,16 +132,12 @@ output.size()
 
 #################################################
 # Activation Functions
+# -------------------------
 #
 # - [nn.ReLU](https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html) Activation:
 # "Applies the rectified linear unit function element-wise"
 # - [nn.Softmax]() Activation:
 # "Applies the Softmax function to an n-dimensional input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie in the range [0,1] and sum to 1."
-
-######################################################
-# Resources
-#
-# `torch.nn <https://pytorch.org/docs/stable/nn.html>`_
 
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
@@ -142,4 +148,4 @@ output.size()
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#| `Back to FashionMNIST main code base <>`_
+#

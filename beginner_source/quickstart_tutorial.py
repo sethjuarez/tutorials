@@ -5,17 +5,6 @@ PyTorch Quickstart
 The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. In this quickstart we will go through an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these core steps using Pytorch.
 
 """
-#####################################################################
-# Jump to:
-# ~~~~~~~~~~~~~~~~~~~~~~~~~
-#  
-# | `Working with data <quickstart_tutorial.html#working-with-data>`_
-# | `Creating Models <quickstart_tutorial.html#creating-models>`_
-# | `Optimizing Parameters <quickstart_tutorial.html#optimizing-parameters>`_
-# | `Saving Models <quickstart_tutorial.html#saving-models>`_
-# | `Loading Models <quickstart_tutorial.html#loading-models>`_
-#
-
 ######################################################################
 # Working with data
 # -----------------
@@ -102,9 +91,10 @@ cost = torch.nn.BCELoss()
 learning_rate = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-######################################################################
-# Create the training function
 # ~~~~~~~~~~~~~~~~~~~~~~
+# Create the training and validation/test functions
+# ~~~~~~~~~~~~~~~~~~~~~~
+
 
 def train(dataloader, model, loss, optimizer):
     size = len(dataloader.dataset)
@@ -119,10 +109,6 @@ def train(dataloader, model, loss, optimizer):
         if batch % 100 == 0:
             loss, current = loss.item(), batch * len(X)
             print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')
-
-######################################################################
-# Create the validation/test function
-# ~~~~~~~~~~~~~~~~~~~~~~
 
 def test(dataloader, model):
     size = len(dataloader.dataset)
@@ -142,10 +128,10 @@ def test(dataloader, model):
 
     print(f'\nTest Error:\nacc: {(100*correct):>0.1f}%, avg loss: {test_loss:>8f}\n')
 
-######################################################################
+# ~~~~~~~~~~~~~~~~~~~~~~
 # Call the train and test function in a training loop with the number of epochs
 # ~~~~~~~~~~~~~~~~~~~~~~
-#
+
 
 epochs = 5
 
@@ -180,6 +166,7 @@ print('Saved onnx model to model.onnx')
 # the state dictionary. Once loaded the model can be used for either
 # retraining or inference purposes (in this example it is used for
 # inference). Check out more details on `saving, loading and running models with Pytorch <quickstart/save_load_run_tutorial.html>`_
+#
 
 loaded_model = nn.Sequential(
         nn.Flatten(),
@@ -212,8 +199,5 @@ with torch.no_grad():
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
 #
 #
-#
-#
 # *Authors* - Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov
-#
 #
