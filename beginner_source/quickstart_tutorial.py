@@ -2,9 +2,19 @@
 PyTorch Quickstart
 ===================
 
-The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. Below is an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these steps using Pytorch. 
+The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. In this quickstart we will go through an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these core steps using Pytorch.
 
 """
+#####################################################################
+# Jump to:
+# ~~~~~~~~~~~~~~~~~~~~~~~~~
+#  
+# | `Working with data <quickstart_tutorial.html#working-with-data>`_
+# | `Creating Models <quickstart_tutorial.html#creating-models>`_
+# | `Optimizing Parameters <quickstart_tutorial.html#optimizing-parameters>`_
+# | `Saving Models <quickstart_tutorial.html#saving-models>`_
+# | `Loading Models <quickstart_tutorial.html#loading-models>`_
+#
 
 ######################################################################
 # Working with data
@@ -74,7 +84,6 @@ model = nn.Sequential(
 print(model)
 
 ######################################################################
-#
 # Optimizing Parameters
 # ---------------------
 # 
@@ -95,7 +104,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 ######################################################################
 # Create the training function
-# -----------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~
 
 def train(dataloader, model, loss, optimizer):
     size = len(dataloader.dataset)
@@ -113,7 +122,7 @@ def train(dataloader, model, loss, optimizer):
 
 ######################################################################
 # Create the validation/test function
-# -----------------------------
+# ~~~~~~~~~~~~~~~~~~~~~~
 
 def test(dataloader, model):
     size = len(dataloader.dataset)
@@ -135,6 +144,7 @@ def test(dataloader, model):
 
 ######################################################################
 # Call the train and test function in a training loop with the number of epochs
+# ~~~~~~~~~~~~~~~~~~~~~~
 #
 
 epochs = 5
@@ -202,4 +212,8 @@ with torch.no_grad():
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
 #
 #
+#
+#
 # *Authors* - Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov
+#
+#
