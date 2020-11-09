@@ -19,7 +19,7 @@ Datasets & Dataloaders
 # 
 #  You can find some of them below. 
 #
-#  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>_`
+#  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>`_
 #  - `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
 #  - `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
 #
@@ -30,8 +30,7 @@ Datasets & Dataloaders
 # Once we have a Dataset we can index it manually like a list *clothing[index]*. 
 # 
 # Here is an example of how to load the fashion MNIST dataset from torch vision.
-# 
-# 
+#
 
 import torch 
 from torch.utils.data import Dataset
@@ -56,6 +55,7 @@ plt.show()
 # .. figure:: /_static/img/quickstart/fashion_mnist.png
 #    :alt:
 #
+
 #################################################################
 # Creating a Custom Dataset
 # -----------------
@@ -97,9 +97,11 @@ class CustomImageDataset(Dataset):
 # Imports 
 # -----------------
 # 
-# Import os for file handling, torch for PyTorch, [pandas](https://pandas.pydata.org/) for loading labels, [torch vision](https://pytorch.org/blog/pytorch-1.7-released/) to read image files, and Dataset to implement the Dataset interface.
+# Import os for file handling, torch for PyTorch, `pandas <https://pandas.pydata.org/>`_ for loading labels, `torch vision <https://pytorch.org/blog/pytorch-1.7-released/>`_ to read image files, and Dataset to implement the Dataset interface.
 # 
 # Example:
+#
+
 import os
 import torch
 import pandas as pd
@@ -110,7 +112,7 @@ from torch.utils.data import DataLoader
 #################################################################
 # Init
 # -----------------
-## 
+#
 # The init function is used for all the first time operations when our Dataset is loaded. In this case we use it to load our annotation labels to memory and the keep track of directory of our image file. Note that different types of data can take different init inputs you are not limited to just an annotations file, directory_path and transforms but for images this is a standard practice.
 # 
 # Example:
@@ -141,6 +143,8 @@ def __len__(self):
 # In this sample if provided a tensor we convert the tensor to a list containing our index. We then load the file at the given index from our image directory as well as the image label from our pandas annotations DataFrame. This image and label are then wrapped in a single sample dictionary which we can apply a Transform on and return. To learn more about Transforms see the next section of the Blitz. 
 # 
 # Example:
+#
+
 def __getitem__(self, idx):
     if torch.is_tensor(idx):
         idx = idx.tolist()
@@ -171,6 +175,8 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #################################################################
 # With this we have all we need to know to load an process data of any kind in PyTorch to train deep learning models.
 # 
+
+
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
 # -----------------
@@ -181,4 +187,4 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#| `Back to FashionMNIST main code base <>`_
+#
