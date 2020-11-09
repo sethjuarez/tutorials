@@ -53,6 +53,7 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
 
 transform=transforms.Compose([transforms.ToTensor()])
 
+#####################################################
 # *Compose*
 # The `transforms.compose` allows us to string together different steps of transformations in a sequential order. This allows us to add an array of transforms for both the features and labels when preparing our data for training.
 #
@@ -71,9 +72,11 @@ transform=transforms.Compose([transforms.ToTensor()])
 # -------------------------------
 #
 #Example:
+#
 
 target_transform= transforms.Lambda(lambda y: torch.zeros(10, dtype=torchfloat).scatter_(dim=0, index=torchtensor(y), value=1))
 
+#################################################
 # This function is taking the y input and creating a tensor of size 10 with a float datatype. Then its calling scatter ([torch.Tensor.scatter_ class](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.scatter_)) to send each item to torch.zeros, according to the row, index and current item value.
 # * *Dim=0*  is row wise index
 # * *index* = torchtensor(y)` is the index of the element toscatter
@@ -85,6 +88,7 @@ target_transform= transforms.Lambda(lambda y: torch.zeros(10, dtype=torchfloat).
 # Below is an example for processing image data using a dataset from a local directory.
 #
 # Example:
+#
 
 data_dir='data'
 batch_size=4

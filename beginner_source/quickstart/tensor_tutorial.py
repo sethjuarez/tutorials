@@ -258,5 +258,4 @@ print(z.to("cpu",torch.double))
 # | `Build Model <build_model_tutorial.html>`_
 # | `Optimization Loop <optimization_tutorial.html>`_
 # | `AutoGrad <autograd_quickstart_tutorial.html>`_
-# | `Back to FashionMNIST main code base <>`_
 #
