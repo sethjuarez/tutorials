@@ -241,5 +241,4 @@ for i in range(15):
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#| `Back to FashionMNIST main code base <>`_
 #
