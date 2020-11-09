@@ -2,7 +2,7 @@
 PyTorch Quickstart
 ===================
 
-The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models
+The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. Below is an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these steps using Pytorch. 
 
 """
 
@@ -19,7 +19,12 @@ from torchvision import datasets, transforms
 # 
 # PyTorch has two basic data primitives: ``DataSet`` and ``DataLoader``.
 # These ``DataSet`` objects include a ``transforms`` mechanism to
-# modify data in-place. 
+# modify data in-place. Below is an example of how to load that data from the Pytorch open datasets. 
+# 
+# To see more examples and details of how to work with Tensors, Datasets, DataLoaders and Transforms in Pytoch checkout these resources:
+#  - `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
+#  - `Tensors <quickstart/tensor_tutorial.html>`_
+#  - `Transformations <quickstart/transforms_tutorial.html>`_
 
 classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
 
@@ -37,34 +42,25 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
     ])
 )
 
-######################################################################
-# DataLoader
-
 # batch size
 batch_size = 64
 
-# loader
+# data loader
 train_dataloader = DataLoader(training_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 
 
 ######################################################################
-# More details `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
-# More details `Tensors <quickstart/tensor_quickstart_tutorial.html>`_
-# More details  `Transformations <transforms_tutorial.html>`_
-#
-#
 # Creating Models
 # ---------------
 # 
 # There are two ways of creating models: in-line or as a class. This
-# quickstart will consider an in-line definition.
+# quickstart will consider an in-line definition. For a more examples checkout `building the model <quickstart/build_model_tutorial.html>`_
 
-# where to run
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Using {} device'.format(device))
 
-# model
+# in-line model
 model = nn.Sequential(
         nn.Flatten(),
         nn.Linear(28*28, 512),
@@ -78,13 +74,15 @@ model = nn.Sequential(
 print(model)
 
 ######################################################################
-# More details `on building the model <quickstart/build_model_tutorial.html>`_
 #
 # Optimizing Parameters
 # ---------------------
 # 
 # Optimizing model parameters requires a loss function, and optimizer,
 # and the optimization loop.
+#  - More details on `optimization and training loops <quickstart/optimization_tutorial.html>`_
+#  - More details on `automatic differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
+#
 
 # cost function used to determine best parameters
 cost = torch.nn.BCELoss()
@@ -140,10 +138,6 @@ for t in range(epochs):
 print('Done!')
 
 ######################################################################
-# More details `optimization and training loops <quickstart/optimization_tutorial.html>`_
-# More details `automatic differentiation and AutoGrad <quickstart/autograd_tutorial.html>`_
-#
-#
 # Saving Models
 # -------------
 # 
@@ -194,10 +188,9 @@ with torch.no_grad():
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
 # ----------------------------------------
-# | `Tensors <tensor_quickstart_tutorial.html>`_
-# | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transformations <transforms_tutorial.html>`_
-# | `Build Model <build_model_tutorial.html>`_
-# | `Optimization Loop <optimization_tutorial.html>`_
-# | `AutoGrad <autograd_tutorial.html>`_
-# | `Back to FashionMNIST main code base <>`_
+# | `Tensors <quickstart/tensor_quickstart_tutorial.html>`_
+# | `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
+# | `Transformations <quickstart/transforms_tutorial.html>`_
+# | `Build Model <quickstart/build_model_tutorial.html>`_
+# | `Optimization Loop <quickstart/optimization_tutorial.html>`_
+# | `AutoGrad <quickstart/autograd_tutorial.html>`_

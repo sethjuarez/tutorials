@@ -18,9 +18,10 @@ Datasets & Dataloaders
 # A whole set of example datasets such as Fashion MNIST that implement this interface are built into PyTorch extension libraries. These are useful for benchmarking and testing your models before training on your own custom datasets.
 # 
 #  You can find some of them below. 
-#  * `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>_`
-#  * `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
-#  * `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
+#
+#  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>_`
+#  - `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
+#  - `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
 #
 #################################################################
 # Iterating through a Dataset
@@ -179,5 +180,5 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #| `Transformations <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
-#|  `AutoGrad <autograd_tutorial.html>`_
+#| `AutoGrad <autograd_tutorial.html>`_
 #| `Back to FashionMNIST main code base <>`_
