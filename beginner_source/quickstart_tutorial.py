@@ -128,8 +128,12 @@ def test(dataloader, model):
 
     print(f'\nTest Error:\nacc: {(100*correct):>0.1f}%, avg loss: {test_loss:>8f}\n')
 
-
+######################################################################
+# Training Models
+# -------------
+# 
 # Call the train and test function in a training loop with the number of epochs indicated
+#
 
 epochs = 5
 
@@ -143,14 +147,13 @@ print('Done!')
 # Saving Models
 # -------------
 # 
-# PyTorch has can serialize the internal model state to a file. It also
-# has built-in ONNX support.
+# PyTorch has different ways you can save your model. One was is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
 
-# saving PyTorch Model Dictionary
+# Saving PyTorch Model Dictionary
 torch.save(model.state_dict(), 'model.pth')
 print('Saved PyTorch Model to model.pth')
 
-# create dummy variable to traverse graph
+# Save to ONNX, create dummy variable to traverse graph
 x = torch.randint(255, (1, 28*28), dtype=torch.float).to(device) / 255
 onnx.export(model, x, 'model.onnx')
 print('Saved onnx model to model.onnx')
@@ -187,9 +190,9 @@ with torch.no_grad():
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the PyTorch Quickstart
 # ----------------------------------------
-# | `Tensors <quickstart/tensor_quickstart_tutorial.html>`_
+# | `Tensors <quickstart/tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
 # | `Transformations <quickstart/transforms_tutorial.html>`_
 # | `Build Model <quickstart/build_model_tutorial.html>`_
