@@ -37,9 +37,9 @@ epochs = 5
 # 
 # The optimziation loop is comprized of three main subloops in PyTorch. 
 #
-# .. figure:: /images/optimization_loops.PNG
-#    :alt:
-# add 
+# .. figure:: /_static/img/quickstart/optimization_loops.png
+#   :alt:
+#
 #  1. The Train Loop -  Core loop iterates over all the epochs 
 #  2. The Validation Loop - Validate  loss after each weight parameter update and can be used to gauge hyper parameter performance and update them for the next batch. 
 #  3. The Test Loop - is used to evaluate our models performance after each epoch on traditional metrics to show how much our model is generalizing from the train and validation dataset to the test dataset it's never seen before.  
@@ -104,10 +104,10 @@ optimizer.step()
 ##################################################################
 # More help with the FashionMNIST Pytorch Blitz
 # -----------------
-# `Tensors <tensor_quickstart_tutorial.html>`_
-# `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# `Transformations <transforms_tutorial.html>`_
-# `Build Model <build_model_tutorial.html>`_
-# `Optimization Loop <optimization_tutorial.html>`_
-# `AutoGrad <autograd_quickstart_tutorial.html>`_
-# `Back to FashionMNIST main code base <>`_
+#| `Tensors <tensor_quickstart_tutorial.html>`_
+#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+#| `Transformations <transforms_tutorial.html>`_
+#| `Build Model <build_model_tutorial.html>`_
+#| `Optimization Loop <optimization_tutorial.html>`_
+#| `AutoGrad <autograd_tutorial.html>`_
+#| `Back to FashionMNIST main code base <>`_
