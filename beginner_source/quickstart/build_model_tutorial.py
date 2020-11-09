@@ -9,14 +9,7 @@ In the below example, for our FashionMNIT image dataset, we are using a `Sequent
 Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. 
 
 We will break down the model below.
-
 """
-
-########################################## 
-# Inline nn.Sequential Example:
-# ----------------------------
-#
-
 import os
 import torch
 import torch.nn as nn
@@ -24,6 +17,10 @@ import torch.onnx as onnx
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
+########################################## 
+# Inline nn.Sequential Example:
+# ----------------------------
+#
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Using {} device'.format(device))
