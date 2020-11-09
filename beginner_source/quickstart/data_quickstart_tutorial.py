@@ -2,6 +2,7 @@
 Datasets & Dataloaders
 ===================
 """
+
 #################################################################
 # Getting Started With Data in PyTorch
 # -----------------
@@ -23,11 +24,12 @@ Datasets & Dataloaders
 #  - `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
 #  - `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
 #
+
 #################################################################
 # Iterating through a Dataset
 # -----------------
 # 
-# Once we have a Dataset we can index it manually like a list *clothing[index]*. 
+# Once we have a Dataset we can index it manually like a list `clothing[index]`. 
 # 
 # Here is an example of how to load the fashion MNIST dataset from torch vision.
 #
@@ -61,6 +63,7 @@ plt.show()
 # -----------------
 #
 # To work with your own data lets look at the a simple custom image Dataset implementation:
+#
 
 import os
 import torch
@@ -178,7 +181,7 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 
 
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the Pytorch Quickstart
 # -----------------
 #
 #| `Tensors <tensor_quickstart_tutorial.html>`_

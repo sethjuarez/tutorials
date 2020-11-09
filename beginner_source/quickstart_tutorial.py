@@ -91,10 +91,8 @@ cost = torch.nn.BCELoss()
 learning_rate = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-# ~~~~~~~~~~~~~~~~~~~~~~
-# Create the training and validation/test functions
-# ~~~~~~~~~~~~~~~~~~~~~~
 
+# Create the training function
 
 def train(dataloader, model, loss, optimizer):
     size = len(dataloader.dataset)
@@ -109,6 +107,8 @@ def train(dataloader, model, loss, optimizer):
         if batch % 100 == 0:
             loss, current = loss.item(), batch * len(X)
             print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')
+
+# Create the validation/test function
 
 def test(dataloader, model):
     size = len(dataloader.dataset)
@@ -128,10 +128,8 @@ def test(dataloader, model):
 
     print(f'\nTest Error:\nacc: {(100*correct):>0.1f}%, avg loss: {test_loss:>8f}\n')
 
-# ~~~~~~~~~~~~~~~~~~~~~~
-# Call the train and test function in a training loop with the number of epochs
-# ~~~~~~~~~~~~~~~~~~~~~~
 
+# Call the train and test function in a training loop with the number of epochs indicated
 
 epochs = 5
 
@@ -199,5 +197,5 @@ with torch.no_grad():
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
 #
 #
-# *Authors* - Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov
+# *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
 #
