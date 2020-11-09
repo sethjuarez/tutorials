@@ -91,7 +91,7 @@ with torch.no_grad():
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the PyTorch Quickstart
 # ----------------------------------------
 # | `Tensors <tensor_quickstart_tutorial.html>`_
 # | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
@@ -100,3 +100,4 @@ with torch.no_grad():
 # | `Optimization Loop <optimization_tutorial.html>`_
 # | `AutoGrad <autograd_quickstart_tutorial.html>`_
 # | `Back to FashionMNIST main code base <>`_
+#

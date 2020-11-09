@@ -1,16 +1,20 @@
 """
 Build Model Tutorial
 ===================
-
-The data has been loaded and transformed we can now build the model. We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ predefined layers that Pytorch has that can both simplify our code, and  make it faster.
-
-In the below example, for our FashionMNIT image dataset, we are using a `Sequential` container from class `torch.nn.Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ that allows us to define the model layers inline. The neural network modules layers will be added to it in the order they are passed in.
-
-Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. 
-
-We will break down the model below.
 """
+
 #############################################
+# The data has been loaded and transformed we can now build the model. We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ predefined layers that Pytorch has that can both simplify our code, and  make it faster.
+# 
+# In the below example, for our FashionMNIT image dataset, we are using a `Sequential` container from class `torch.nn.Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ that allows us to define the model layers inline. The neural network modules layers will be added to it in the order they are passed in.
+# 
+# Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. 
+# 
+# We will break down the model below.
+# 
+# 
+
+########################################## 
 # Inline nn.Sequential Example:
 # ----------------------------
 #
@@ -44,9 +48,9 @@ print(model)
 # --------------------------
 #
 
-class Model(nn.Module):
+class NeuralNework(nn.Module):
     def __init__(self, x):
-        super(Model, self).__init__()
+        super(NeuralNework, self).__init__()
         self.layer1 = nn.Linear(28*28, 512)
         self.layer2 = nn.Linear(512, 512)
         self.output = nn.Linear(512, 10)
@@ -115,6 +119,7 @@ flattened_tensor.size()
 # bias – If set to False, the layer will not learn an additive bias. Default: True
 #
 # Lets take a look at the resulting data example with the flatten layer and linear layer added:
+#
 
 input = training_data[0][0]
 print(input.size())
@@ -134,13 +139,12 @@ output.size()
 # Activation Functions
 # -------------------------
 #
-# - [nn.ReLU](https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html) Activation:
-# "Applies the rectified linear unit function element-wise"
-# - [nn.Softmax]() Activation:
-# "Applies the Softmax function to an n-dimensional input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie in the range [0,1] and sum to 1."
+# - `nn.ReLU <https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html)>`_ Activation
+# - `nn.Softmax <https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html>`_ Activation
+# 
 
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the Pytorch Quickstart
 # -------------------------
 #| `Tensors <tensor_quickstart_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_

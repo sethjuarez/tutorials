@@ -248,3 +248,15 @@ print(z.to("cpu",torch.double))
 # moving it from GPU anyway.
 # 
 
+
+##################################################################
+# More help with the PyTorch Quickstart
+# ----------------------------------------
+# | `Tensors <tensor_quickstart_tutorial.html>`_
+# | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+# | `Transformations <transforms_tutorial.html>`_
+# | `Build Model <build_model_tutorial.html>`_
+# | `Optimization Loop <optimization_tutorial.html>`_
+# | `AutoGrad <autograd_quickstart_tutorial.html>`_
+# | `Back to FashionMNIST main code base <>`_
+#

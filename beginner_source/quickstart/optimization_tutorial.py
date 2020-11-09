@@ -19,7 +19,7 @@ Let's dissect these concepts one by one and look at some code at the end we'll s
 # Hyperparameters 
 # -----------------
 #
-#Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
+# Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
 #
 # - **Number of Epochs**- the number times iterate over the dataset to update model parameters
 # - **Batch Size** - the number of samples in the dataset to evaluate before you update model parameters
@@ -33,12 +33,14 @@ epochs = 5
 ######################################################
 # Optimizaton Loops
 # -----------------
+#
 # Once we set our hyperparameters we can then optimize our our model with optimization loops.
 # 
 # The optimziation loop is comprized of three main subloops in PyTorch. 
 #
 # .. figure:: /_static/img/quickstart/optimization_loops.png
-#   :alt:
+#    :alt:
+#
 #
 #  1. The Train Loop -  Core loop iterates over all the epochs 
 #  2. The Validation Loop - Validate  loss after each weight parameter update and can be used to gauge hyper parameter performance and update them for the next batch. 
@@ -59,7 +61,8 @@ for epoch in range(num_epochs): # Optimization Loop
 ######################################################
 # Loss
 # -----------------
-#The loss is the value used to update our parameters. To calculate the loss we make a prediction using the inputs of our given data sample. 
+#
+# The loss is the value used to update our parameters. To calculate the loss we make a prediction using the inputs of our given data sample. 
 #
 
 preds = model(inputs)
@@ -68,6 +71,7 @@ loss = cost_function(preds, labels)
 ######################################################
 # AutoGrad and Optimizer (We might want to split this when we go more in depth on autograd )
 # -----------------
+#
 # By default each tensor maintains a graph of every operation applied on it unless otherwise specified using the torch.no_grad() command. 
 #
 # `Autograd graph <https://discuss.pytorch.org/uploads/default/original/1X/c7e0a44b7bcebfb41315b56f8418ce37f0adbfeb.png>`_
@@ -85,24 +89,22 @@ optimizer.step()
 # Putting it all together lets look at a basic optimization loop
 # -----------------
 #
-#
-# 
-# #initilize optimizer and example cost function
+# Initilize optimizer and example cost function
 # 
 # # For loop to iterate over epoch
-#     # Train loop over batches 
-#         # Set model to train mode
-#         # Calculate loss using 
-#         # clear optimizer gradient
-#         # loss.backword
-#         # optimizer step
-#         # Set model to evaluate mode and start validation loop
-#         #calculate validation loss and update optimizer hyper parameters
-#     # Set model to evaluate test loop
+#     - Train loop over batches 
+#         - Set model to train mode
+#         - Calculate loss using 
+#         - clear optimizer gradient
+#         - loss.backword
+#         - optimizer step
+#         - Set model to evaluate mode and start validation loop
+#         - calculate validation loss and update optimizer hyper parameters
+#     - Set model to evaluate test loop
 
 
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the PyTorch Quickstart
 # -----------------
 #| `Tensors <tensor_quickstart_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
@@ -111,3 +113,4 @@ optimizer.step()
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
 #| `Back to FashionMNIST main code base <>`_
+#

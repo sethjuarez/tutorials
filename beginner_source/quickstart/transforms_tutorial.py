@@ -62,6 +62,9 @@ transform=transforms.Compose([transforms.ToTensor()])
 #
 # ..note: ToTensor only normalized image data that is in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
 #
+#
+# Check out the other `TorchVision Transforms <https://pytorch.org/docs/stable/torchvision/transforms.html>`_
+#
 
 ##############################################
 # Target_Transform: Labels
@@ -81,7 +84,7 @@ target_transform= transforms.Lambda(lambda y: torch.zeros(10, dtype=torchfloat).
 # --------------------------------------
 # Below is an example for processing image data using a dataset from a local directory.
 #
-#Example:
+# Example:
 
 data_dir='data'
 batch_size=4
@@ -114,14 +117,8 @@ dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 class_names = image_datasets['train'].classes
 
 
-##################################################
-# Resources
-#-------------------------------------------
-#Check out the other TorchVision Transforms available: https://pytorch.org/docs/stable/torchvision/transforms.html
-#
-#
 ##################################################################
-# More help with the FashionMNIST Pytorch Blitz
+# More help with the PyTorch Quickstart
 # ----------------------------------------
 # | `Tensors <tensor_quickstart_tutorial.html>`_
 # | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
@@ -130,6 +127,7 @@ class_names = image_datasets['train'].classes
 # | `Optimization Loop <optimization_tutorial.html>`_
 # | `AutoGrad <autograd_quickstart_tutorial.html>`_
 # | `Back to FashionMNIST main code base <>`_
+#
 
 
 
