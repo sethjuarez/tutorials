@@ -25,7 +25,7 @@ print(f"Tensor={tensor}, Array={tensor.numpy()}")
 
 
 ######################################################################
-# ..note: When using CPU for computations, tensors converted from arrays
+# .. note:: When using CPU for computations, tensors converted from arrays
 # share the same memory for data. Thus, changing the underlying array will
 # also affect the tensor.
 # 
@@ -187,7 +187,7 @@ print(x.view(5,-1)) # will result in size 5x3
 
 
 ######################################################################
-# ..note: ``view`` is similar to ``reshape`` operation in NumPy. There
+# .. note:: ``view`` is similar to ``reshape`` operation in NumPy. There
 # is also a ``reshape`` method available in PyTorch, and it is more
 # powerful than ``view``, because it can also reshape non-contiguous
 # arrays by copying them to the new shape. However, in vast majority of
