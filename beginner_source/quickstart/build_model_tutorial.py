@@ -114,15 +114,7 @@ flattened_tensor.size()
 #
 # From the docs:
 # 
-# torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)
-# 
-# in_features – size of each input sample
-#
-# out_features – size of each output sample
-#
-# bias – If set to False, the layer will not learn an additive bias. Default: True
-#
-# Lets take a look at the resulting data example with the flatten layer and linear layer added:
+# `torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)`
 #
 
 input = training_data[0][0]
