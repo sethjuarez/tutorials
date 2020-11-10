@@ -9,17 +9,17 @@ Build Model Tutorial
 # predefined layers that Pytorch has that can both simplify our code, and  make it faster.
 # 
 # In the below example, for our FashionMNIT image dataset, we are using a `Sequential` 
-# container from class `torch.nn.# Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ 
-# that allows us to define the model # layers inline. 
+# container from class `torch.nn. Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ 
+# that allows us to define the model layers inline. 
 # The neural network modules layers will be added to it in the order they are passed in.
 # 
-# Another way this model could be bulid is with a class 
+# Another way to bulid this model is with a class 
 # using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_
 #
-# We will break down the model below.
+# Lets break down the steps to build this model below
 #
 
-########################################## 
+##########################################
 # Inline nn.Sequential Example:
 # ----------------------------
 #
@@ -88,11 +88,10 @@ print('Using {} device'.format(device))
 # -----------------------------------------------
 #
 # From the docs:
+# ``torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)``
 #
- 
-torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)
 
-#Here is an example using one of the training_data set items:
+# Here is an example using one of the training_data set items:
 tensor = training_data[0][0]
 print(tensor.size())
 
@@ -114,7 +113,7 @@ flattened_tensor.size()
 #
 # From the docs:
 # 
-# `torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)`
+# ``torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)``
 #
 
 input = training_data[0][0]
@@ -137,7 +136,9 @@ output.size()
 #
 # - `nn.ReLU <https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html)>`_ Activation
 # - `nn.Softmax <https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html>`_ Activation
-# 
+#
+# Next: Learn more about how the `optimzation loop works with this example <optimization_tutorial.html>`_.
+#
 
 ##################################################################
 # More help with the Pytorch Quickstart
@@ -145,7 +146,8 @@ output.size()
 #
 #| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transformations <transforms_tutorial.html>`_
+#| `Transforms <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
+#| `Save, Load and Run Model <save_run_load_tutorial.html>`_
