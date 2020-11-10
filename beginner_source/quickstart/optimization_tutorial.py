@@ -104,9 +104,10 @@ optimizer.step()
 
 
 ##################################################################
-# More help with the PyTorch Quickstart
+# More help with the Pytorch Quickstart
 # -----------------
-#| `Tensors <quickstart/tensor_tutorial.html>`_
+#
+#| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 #| `Transformations <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_

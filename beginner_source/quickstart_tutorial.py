@@ -16,7 +16,7 @@ The basic machine learning concepts in any framework should include: Working wit
 # To see more examples and details of how to work with Tensors, Datasets, DataLoaders and Transforms in Pytoch with this example checkout these resources:
 #  - `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
 #  - `Tensors <quickstart/tensor_tutorial.html>`_
-#  - `Transformations <quickstart/transforms_tutorial.html>`_
+#  - `Transforms <quickstart/transforms_tutorial.html>`_
 
 import torch
 import torch.nn as nn
@@ -147,7 +147,7 @@ print('Done!')
 # Saving Models
 # -------------
 # 
-# PyTorch has different ways you can save your model. One was is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
+# PyTorch has different ways you can save your model. One way is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
 
 # Saving PyTorch Model Dictionary
 torch.save(model.state_dict(), 'model.pth')
