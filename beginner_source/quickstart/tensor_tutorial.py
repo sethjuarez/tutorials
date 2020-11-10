@@ -250,11 +250,12 @@ print(z.to("cpu",torch.double))
 
 
 ##################################################################
-# More help with the PyTorch Quickstart
-# ----------------------------------------
-# | `Tensors <tensor_tutorial.html>`_
-# | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transformations <transforms_tutorial.html>`_
-# | `Build Model <build_model_tutorial.html>`_
-# | `Optimization Loop <optimization_tutorial.html>`_
-# | `AutoGrad <autograd_quickstart_tutorial.html>`_
+# More help with the Pytorch Quickstart
+# -----------------
+#
+#| `Tensors <tensor_tutorial.html>`_
+#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
+#| `Transformations <transforms_tutorial.html>`_
+#| `Build Model <build_model_tutorial.html>`_
+#| `Optimization Loop <optimization_tutorial.html>`_
+#| `AutoGrad <autograd_tutorial.html>`_

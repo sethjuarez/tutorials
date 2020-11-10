@@ -14,6 +14,7 @@ We will break down the model below.
 # Inline nn.Sequential Example:
 # ----------------------------
 #
+
 import os
 import torch
 import torch.nn as nn
@@ -139,7 +140,8 @@ output.size()
 
 ##################################################################
 # More help with the Pytorch Quickstart
-# -------------------------
+# -----------------
+#
 #| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 #| `Transformations <transforms_tutorial.html>`_
