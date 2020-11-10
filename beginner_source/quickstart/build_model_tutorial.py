@@ -1,15 +1,24 @@
 """
 Build Model Tutorial
 =======================================
-
-The data has been loaded and transformed we can now build the model. We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ predefined layers that Pytorch has that can both simplify our code, and  make it faster.
-
-In the below example, for our FashionMNIT image dataset, we are using a `Sequential` container from class `torch.nn.Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ that allows us to define the model layers inline. The neural network modules layers will be added to it in the order they are passed in.
-
-Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_
-
-We will break down the model below.
 """
+
+###############################################
+# The data has been loaded and transformed we can now build the model. 
+# We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ 
+# predefined layers that Pytorch has that can both simplify our code, and  make it faster.
+# 
+# In the below example, for our FashionMNIT image dataset, we are using a `Sequential` 
+# container from class `torch.nn.# Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ 
+# that allows us to define the model # layers inline. 
+# The neural network modules layers will be added to it in the order they are passed in.
+# 
+# Another way this model could be bulid is with a class 
+# using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_
+#
+# We will break down the model below.
+#
+
 ########################################## 
 # Inline nn.Sequential Example:
 # ----------------------------
