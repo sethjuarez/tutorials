@@ -25,7 +25,7 @@ Datasets & Dataloaders
 #  You can find some of them below. 
 #
 #  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>`_
-#  - `Text Datasets  <https://pytorch.org/text/datasets.html)>`_
+#  - `Text Datasets  <https://pytorch.org/text/datasets.html>`_
 #  - `Audio Datasets <https://pytorch.org/audio/datasets.html>`_
 #
 

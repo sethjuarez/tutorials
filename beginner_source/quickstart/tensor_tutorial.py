@@ -25,7 +25,7 @@ print(f"Tensor={tensor}, Array={tensor.numpy()}")
 
 
 ######################################################################
-# **Note:** When using CPU for computations, tensors converted from arrays
+# ..note: When using CPU for computations, tensors converted from arrays
 # share the same memory for data. Thus, changing the underlying array will
 # also affect the tensor.
 # 
@@ -44,7 +44,7 @@ x = torch.empty(3,6)
 
 
 ######################################################################
-# In practice, we ofter want to create tensors initialized to some values,
+# In practice, we often want to create tensors initialized to some values,
 # such as zeros, ones or random values. Note that you can also specify the
 # type of elements using ``dtype`` parameter, and chosing one of ``torch``
 # types:
@@ -56,7 +56,7 @@ z = torch.ones(3,5,dtype=torch.double)
 
 ######################################################################
 # You can also create random tensors with values sampled from different
-# distributions, as described `in
+# distributions, as described `in the
 # documentation <https://pytorch.org/docs/stable/torch.html#random-sampling>`__.
 # 
 # Similarly to NumPy, you can use ``eye`` to create a diagonal identity
@@ -95,7 +95,7 @@ print(z.size()) # Prints [3.0]
 # arguments. Those operations have ``_`` appended to their name, eg.
 # ``add_``.
 # 
-# Complete reference to all tensor operations can be found `in
+# Complete reference to all tensor operations can be found `in the
 # documentation <https://pytorch.org/docs/stable/torch.html>`__.
 # 
 # Let us see examples of those operations on two tensors, ``x`` and ``y``.
@@ -168,8 +168,8 @@ x.add_(y) # x will be modified
 # Resizing and Indexing
 # ~~~~~~~~~~~~~~~~~~~~~
 # 
-# Very often you need to change the shape of the tensor without modifying
-# its valies, eg. to add an extra dimension. To do that, you can use
+# Often you need to change the shape of the tensor without modifying
+# its values, eg. to add an extra dimension. To do that, you can use
 # ``view`` method, which provides a **view** to the same in-memory values
 # using different dimensions:
 # 
@@ -180,14 +180,14 @@ print(x.view(5,-1)) # will result in size 5x3
 
 
 ######################################################################
-# Note that the number of elements in a view should be the same as in the
+# The number of elements in a view should be the same as in the
 # original tensor, and that you can use ``-1`` in one of the dimensions to
 # figure out this dimension automatically.
 # 
 
 
 ######################################################################
-# **Note:** ``view`` is similar to ``reshape`` operation in NumPy. There
+# ..note: ``view`` is similar to ``reshape`` operation in NumPy. There
 # is also a ``reshape`` method available in PyTorch, and it is more
 # powerful than ``view``, because it can also reshape non-contiguous
 # arrays by copying them to the new shape. However, in vast majority of
