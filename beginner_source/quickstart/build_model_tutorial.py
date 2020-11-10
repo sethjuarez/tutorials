@@ -6,21 +6,20 @@ The data has been loaded and transformed we can now build the model. We will lev
 
 In the below example, for our FashionMNIT image dataset, we are using a `Sequential` container from class `torch.nn.Sequential <https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html>`_ that allows us to define the model layers inline. The neural network modules layers will be added to it in the order they are passed in.
 
-Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_. 
+Another way this model could be bulid is with a class using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_
 
 We will break down the model below.
 """
+########################################## 
+# Inline nn.Sequential Example:
+# ----------------------------
+#
 import os
 import torch
 import torch.nn as nn
 import torch.onnx as onnx
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-
-########################################## 
-# Inline nn.Sequential Example:
-# ----------------------------
-#
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Using {} device'.format(device))
@@ -147,4 +146,3 @@ output.size()
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#
