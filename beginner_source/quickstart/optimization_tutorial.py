@@ -40,7 +40,7 @@ epochs = 5
 #
 
 ############################################################
-# .. figure:: /_static/img/quickstart/optimization_loops.png
+# .. figure:: /_static/img/quickstart/optimizationloops.png
 #    :alt:
 #
 

@@ -11,8 +11,8 @@ Datasets & Dataloaders
 #
 
 ###############################################################
-# .. figure:: /_static/img/quickstart/typesofdata.png
-#    :alt: typesofdata
+# .. figure:: /_static/img/quickstart/typesdata.png
+#    :alt: typesdata
 # 
 
 ############################################################

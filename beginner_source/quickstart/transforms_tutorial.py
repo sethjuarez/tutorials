@@ -61,7 +61,7 @@ transform=transforms.Compose([transforms.ToTensor()])
 # For the feature transforms we have an array of transforms to process our image data for training. The first transform in the array is `transforms.ToTensor()` this is from class [torchvision.transforms.ToTensor](https://pytorch.org/docs/stable/torchvision/transforms.html#torchvision.transforms.ToTensor). We need to take our images and turn them into a tensor. (To learn more about Tensors check out [this]() resource.) The ToTensor() transformation is doing more than converting our image into a tensor. Its also normalizing our data for us by scaling the images to be between 0 and 1.
 #
 #
-# .. note: ToTensor only normalized image data that is in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
+# .. note:: ToTensor only normalized image data that is in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
 #
 #
 # Check out the other `TorchVision Transforms <https://pytorch.org/docs/stable/torchvision/transforms.html>`_
