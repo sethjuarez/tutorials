@@ -14,8 +14,9 @@ The basic machine learning concepts in any framework should include: Working wit
 # modify data in-place. Below is an example of how to load that data from the Pytorch open datasets and transform the data to a normalized tensor. 
 # 
 # To see more examples and details of how to work with Tensors, Datasets, DataLoaders and Transforms in Pytoch with this example checkout these resources:
-#  - `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
+#  
 #  - `Tensors <quickstart/tensor_tutorial.html>`_
+#  - `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
 #  - `Transforms <quickstart/transforms_tutorial.html>`_
 
 import torch
@@ -194,11 +195,11 @@ with torch.no_grad():
 # ----------------------------------------
 # | `Tensors <quickstart/tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
-# | `Transformations <quickstart/transforms_tutorial.html>`_
+# | `Transforms <quickstart/transforms_tutorial.html>`_
 # | `Build Model <quickstart/build_model_tutorial.html>`_
 # | `Optimization Loop <quickstart/optimization_tutorial.html>`_
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
-#
+# | `Save, Load and Run Model <save_run_load_tutorial.html>`_
 #
 # *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
 

@@ -182,7 +182,8 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #################################################################
 # With this we have all we need to know to load an process data of any kind in PyTorch to train deep learning models.
 # 
-
+# Next: Learn more about how to `transform that data for training <transforms_tutorial.html>`_.
+#
 
 ##################################################################
 # More help with the Pytorch Quickstart
@@ -190,7 +191,8 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #
 #| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transformations <transforms_tutorial.html>`_
+#| `Transforms <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
+#| `Save, Load and Run Model <save_run_load_tutorial.html>`_

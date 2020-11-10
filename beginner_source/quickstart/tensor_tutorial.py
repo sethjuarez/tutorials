@@ -247,7 +247,8 @@ print(z.to("cpu",torch.double))
 # computational time, because we need to copy and transform the data when
 # moving it from GPU anyway.
 # 
-
+# Next learn how to load built in and custom `datasets with dataloaders <data_quickstart_tutorial.html>`_
+#
 
 ##################################################################
 # More help with the Pytorch Quickstart
@@ -255,7 +256,8 @@ print(z.to("cpu",torch.double))
 #
 #| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transformations <transforms_tutorial.html>`_
+#| `Transforms <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
+#| `Save, Load and Run Model <save_run_load_tutorial.html>`_

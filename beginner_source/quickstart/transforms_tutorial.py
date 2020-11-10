@@ -43,7 +43,7 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
 # 
 # From the docs:
 # 
-# ```torchvision.datasets.FashionMNIST(root, train=True, transform=None, target_transform=None, download=False)```
+# ``torchvision.datasets.FashionMNIST(root, train=True, transform=None, target_transform=None, download=False)``
 
 ##############################################
 # Transform: Features
@@ -120,16 +120,21 @@ dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 
 class_names = image_datasets['train'].classes
 
+##################################################################
+# Next learn how to `build the model <build_model_tutorial.html>`_
+#
+
 
 ##################################################################
 # More help with the PyTorch Quickstart
 # ----------------------------------------
 # | `Tensors <tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transformations <transforms_tutorial.html>`_
+# | `Transforms <transforms_tutorial.html>`_
 # | `Build Model <build_model_tutorial.html>`_
 # | `Optimization Loop <optimization_tutorial.html>`_
-# | `AutoGrad <autograd_quickstart_tutorial.html>`_
+# | `AutoGrad <autograd_quickstart_tutorial.html>`
+# | `Save, Load and Run Model <save_run_load_tutorial.html>`_
 
 
 
