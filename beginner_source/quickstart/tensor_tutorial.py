@@ -25,9 +25,7 @@ print(f"Tensor={tensor}, Array={tensor.numpy()}")
 
 
 ######################################################################
-# .. note:: When using CPU for computations, tensors converted from arrays
-# share the same memory for data. Thus, changing the underlying array will
-# also affect the tensor.
+# .. note:: When using CPU for computations, tensors converted from arrays share the same memory for data. Thus, changing the underlying array will also affect the tensor.
 # 
 
 
@@ -88,13 +86,10 @@ print(z.size()) # Prints [3.0]
 # ~~~~~~~~~~~~~~~~~
 # 
 # Tensors support all basic arithmetic operations, which can be specified
-# in different ways: \* Using operators, such as ``+``, ``-``, etc. \*
-# Using functions such as ``add``, ``mult``, etc. Functions can either
-# return values, or store them in the specified ouput variable (using
-# ``out=`` parameter) \* In-place operations, which modify one of the
-# arguments. Those operations have ``_`` appended to their name, eg.
-# ``add_``.
-# 
+# in different ways:
+#  - Using operators, such as ``+``, ``-``, etc. \*
+#  - Using functions such as ``add``, ``mult``, etc. Functions can either return values, or store them in the specified ouput variable (using ``out=`` parameter)
+#  - In-place operations, which modify one of the arguments. Those operations have ``_`` appended to their name, eg. ``add_``.
 # Complete reference to all tensor operations can be found `in the
 # documentation <https://pytorch.org/docs/stable/torch.html>`__.
 # 
@@ -188,11 +183,11 @@ print(x.view(5,-1)) # will result in size 5x3
 
 ######################################################################
 # .. note:: ``view`` is similar to ``reshape`` operation in NumPy. There
-# is also a ``reshape`` method available in PyTorch, and it is more
-# powerful than ``view``, because it can also reshape non-contiguous
-# arrays by copying them to the new shape. However, in vast majority of
-# cases you can use ``view`` and make sure that no data copying occurs,
-# and the operation is always efficient.
+#           is also a ``reshape`` method available in PyTorch, and it is more
+#           powerful than ``view``, because it can also reshape non-contiguous
+#           arrays by copying them to the new shape. However, in vast majority of
+#           cases you can use ``view`` and make sure that no data copying occurs,
+#           and the operation is always efficient.
 # 
 
 
