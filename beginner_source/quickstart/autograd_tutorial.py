@@ -231,7 +231,7 @@ for i in range(15):
 # process, we will need to do a number of iterations to minimize the value
 # of **loss function**.
 # 
-# Next: Learn more about `saving, loading and running the model <autograd_tutorial.html>`_.
+# Next: Learn more about `saving, loading and running the model <save_run_load_tutorial.html>`_.
 #
 
 ##################################################################
