@@ -4,11 +4,12 @@ PyTorch Quickstart
 
 The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. In this quickstart we will go through an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these core steps using Pytorch.
 
+Working with data
+-----------------
 """
+
 ######################################################################
-# Working with data
-# -----------------
-# 
+#
 # PyTorch has two basic data primitives: ``DataSet`` and ``DataLoader``.
 # These ``DataSet`` objects include a ``transforms`` mechanism to
 # modify data in-place. Below is an example of how to load that data from the Pytorch open datasets and transform the data to a normalized tensor. 

@@ -38,10 +38,12 @@ loss = torch.nn.functional.binary_cross_entropy_with_logits(z,y)
 # optimize. Thus, we need to be able to compute the gradients of loss
 # function with respect to those variables. In orded to do that, we set
 # the ``requires_grad`` property of those tensors.
-# 
-#    **Note:** You can set the value of ``requires_grad`` when creating a
-#    tensor, or later by using ``x.requires_grad_(True)`` method.
-# 
+
+#######################################################################
+# .. note:: You can set the value of ``requires_grad`` when creating a
+#           tensor, or later by using ``x.requires_grad_(True)`` method.
+
+#######################################################################
 # A function that we apply to tensors to construct computational graph is
 # in fact an object of class ``Function``. This object knows how to
 # compute the function in the *forward* direction, and also how to compute
@@ -72,13 +74,15 @@ print(b.grad)
 
 
 ######################################################################
-# **Notes:** \* We can only obtain the ``grad`` properties for the leaf
-# nodes of the computational graph, which have ``requires_grad`` property
-# set to ``True``. For all other nodes in our graph gradients will not be
-# available. \* We can only perform gradient calculations using
-# ``backward`` once on a given graph, for performance reasons. If we need
-# to do several ``backward`` calls on the same graph, we need to pass
-# ``retain_graph=True`` to the ``backward`` call.
+# .. note::
+#   - We can only obtain the ``grad`` properties for the leaf
+#     nodes of the computational graph, which have ``requires_grad`` property
+#     set to ``True``. For all other nodes in our graph gradients will not be
+#     available.
+#   - We can only perform gradient calculations using
+#     ``backward`` once on a given graph, for performance reasons. If we need
+#     to do several ``backward`` calls on the same graph, we need to pass
+#     ``retain_graph=True`` to the ``backward`` call.
 # 
 
 
@@ -135,12 +139,13 @@ print("\nCall after zeroing gradients\n",inp.grad)
 # to compute the proper gradients, you need to zero out the ``grad``
 # property before. In real-life training an *optimizer* helps us to do
 # this.
-# 
-# **Note:** Previously we were calling ``backward()`` function without
-# parameters. This is essentially equivalent to calling
-# ``backward(torch.tensor(1.0))``, which is a useful way to compute the
-# gradients in case of a scalar-valued function, such as loss during
-# neural network training.
+
+######################################################################
+# .. note:: Previously we were calling ``backward()`` function without
+#           parameters. This is essentially equivalent to calling
+#           ``backward(torch.tensor(1.0))``, which is a useful way to compute the
+#           gradients in case of a scalar-valued function, such as loss during
+#           neural network training.
 # 
 
 
@@ -231,7 +236,7 @@ for i in range(15):
 # process, we will need to do a number of iterations to minimize the value
 # of **loss function**.
 # 
-# Next: Learn more about `saving, loading and running the model <save_load_run_tutorial.html>`_.
+# Next: Learn more about `how to use AutoGrad to train a neural network model <optimization_tutorial.html>`_.
 #
 
 ##################################################################
