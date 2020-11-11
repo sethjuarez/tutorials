@@ -192,7 +192,7 @@ with torch.no_grad():
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
 
 ##################################################################
-# More help with the PyTorch Quickstart
+# Pytorch Quickstart Topics
 # ----------------------------------------
 # | `Tensors <quickstart/tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <quickstart/data_quickstart_tutorial.html>`_
@@ -200,7 +200,7 @@ with torch.no_grad():
 # | `Build Model <quickstart/build_model_tutorial.html>`_
 # | `Optimization Loop <quickstart/optimization_tutorial.html>`_
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
-# | `Save, Load and Run Model <save_run_load_tutorial.html>`_
+# | `Save, Load and Run Model <save_load_run_tutorial.html>`_
 #
 # *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
 

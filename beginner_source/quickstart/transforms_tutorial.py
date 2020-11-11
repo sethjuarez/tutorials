@@ -133,15 +133,15 @@ class_names = image_datasets['train'].classes
 
 
 ##################################################################
-# More help with the PyTorch Quickstart
+# Pytorch Quickstart Topics
 # ----------------------------------------
 # | `Tensors <tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transforms <transforms_tutorial.html>`_
+# | `Transforms <transforms_tutorial.html>`
 # | `Build Model <build_model_tutorial.html>`_
 # | `Optimization Loop <optimization_tutorial.html>`_
 # | `AutoGrad <autograd_quickstart_tutorial.html>`_
-# | `Save, Load and Run Model <save_run_load_tutorial.html>`_
+# | `Save, Load and Run Model <save_load_run_tutorial.html>`_
 
 
 
