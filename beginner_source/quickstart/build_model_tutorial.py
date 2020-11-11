@@ -14,7 +14,8 @@ Build Model Tutorial
 # The neural network modules layers will be added to it in the order they are passed in.
 # 
 # Another way to bulid this model is with a class 
-# using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_
+# using `nn.Module <https://pytorch.org/docs/stable/generated/torch.nn.Module.html)>`_ This gives us more flexibility, because
+# we can construct layers of any complexity, including the ones with shared weights.
 #
 # Lets break down the steps to build this model below
 #

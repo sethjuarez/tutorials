@@ -4,21 +4,19 @@ Optimizing Model Parameters
 Now that we have a model and data it's time to train, validate and test our model by optimizating it's paramerters on our data! 
 
 To do this we need to understand a how to handle 5 core deep learning concepts in PyTorch
-1. Hyperparameters (learning rates, batch sizes, epochs etc)
-2. Optimization Loops
-3. Loss
-4. AutoGrad
-5. Optimizers 
+ 1. Hyperparameters (learning rates, batch sizes, epochs etc)
+ 2. Optimization Loops
+ 3. Loss
+ 4. AutoGrad
+ 5. Optimizers 
 
 Let's dissect these concepts one by one and look at some code at the end we'll see how it all fits together.
 
-
+Hyperparameters 
+-----------------
 """
 
 ######################################################
-# Hyperparameters 
-# -----------------
-#
 # Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
 #
 # - **Number of Epochs**- the number times iterate over the dataset to update model parameters
