@@ -231,17 +231,16 @@ for i in range(15):
 # process, we will need to do a number of iterations to minimize the value
 # of **loss function**.
 # 
-# Next: Learn more about `saving, loading and running the model <save_run_load_tutorial.html>`_.
+# Next: Learn more about `saving, loading and running the model <save_load_run_tutorial.html>`_.
 #
 
 ##################################################################
-# More help with the Pytorch Quickstart
+# Pytorch Quickstart Topics
 # -----------------
-#
 #| `Tensors <tensor_tutorial.html>`_
 #| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
 #| `Transforms <transforms_tutorial.html>`_
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Run Model <save_run_load_tutorial.html>`_
+#| `Save, Load and Run Model <save_load_run_tutorial.html>`_
