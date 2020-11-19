@@ -200,7 +200,7 @@ with torch.no_grad():
 # | `Build Model <quickstart/build_model_tutorial.html>`_
 # | `Optimization Loop <quickstart/optimization_tutorial.html>`_
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
-# | `Save, Load and Run Model <quickstart/save_load_run_tutorial.html>`_
+# | `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
 #
 # *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
 

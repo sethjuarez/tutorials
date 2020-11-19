@@ -150,4 +150,4 @@ output.size()
 #| `Build Model <build_model_tutorial.html>`_
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Run Model <save_load_run_tutorial.html>`_
+#| `Save, Load and Use Model <save_load_run_tutorial.html>`_
