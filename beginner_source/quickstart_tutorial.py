@@ -27,6 +27,7 @@ import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 
+# label classes
 classes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
 
 training_data = datasets.FashionMNIST('data', train=True, download=True,
@@ -94,9 +95,8 @@ learning_rate = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 
-# Create the training function
-
-def train(dataloader, model, loss, optimizer):
+# single epoch training function
+def train(dataloader, model, loss, optimizer, device):
     size = len(dataloader.dataset)
     for batch, (X, Y) in enumerate(dataloader):
         X, Y = X.to(device), Y.to(device)
@@ -110,15 +110,14 @@ def train(dataloader, model, loss, optimizer):
             loss, current = loss.item(), batch * len(X)
             print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')
 
-# Create the validation/test function
-
-def test(dataloader, model):
+# validation/test of test dataset
+def test(dataloader, model, device):
     size = len(dataloader.dataset)
     model.eval()
     test_loss, correct = 0, 0
 
     with torch.no_grad():
-        for batch, (X, Y) in enumerate(dataloader):
+        for X, Y in dataloader:
             X, Y = X.to(device), Y.to(device)
             pred = model(X)
 
@@ -141,15 +140,16 @@ epochs = 5
 
 for t in range(epochs):
     print(f'Epoch {t+1}\n-------------------------------')
-    train(train_dataloader, model, cost, optimizer)
-    test(test_dataloader, model)
+    train(train_dataloader, model, cost, optimizer, device)
+    test(test_dataloader, model, device)
 print('Done!')
 
 ######################################################################
 # Saving Models
 # -------------
 # 
-# PyTorch has different ways you can save your model. One way is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
+# PyTorch has different ways you can save your model. One way is to serialize the internal model state 
+# to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
 
 # Saving PyTorch Model Dictionary
 torch.save(model.state_dict(), 'model.pth')
@@ -200,7 +200,7 @@ with torch.no_grad():
 # | `Build Model <quickstart/build_model_tutorial.html>`_
 # | `Optimization Loop <quickstart/optimization_tutorial.html>`_
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
-# | `Save, Load and Run Model <save_load_run_tutorial.html>`_
+# | `Save, Load and Run Model <quickstart/save_load_run_tutorial.html>`_
 #
 # *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
 

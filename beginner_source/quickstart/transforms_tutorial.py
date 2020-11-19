@@ -67,7 +67,7 @@ transform=transforms.Compose([transforms.ToTensor()])
 # For the feature transforms we have an array of transforms to process our image data for training. The first transform in the array is ``transforms.ToTensor()`` this is from class `torchvision.transforms.ToTensor <https://pytorch.org/docs/stable/torchvision/transforms.html#torchvision.transforms.ToTensor>`_. We need to take our images and turn them into a tensor. (To learn more about Tensors check out `this <tensor_tutorial.html>`_ resource.) The ``ToTensor()`` transformation is doing more than converting our image into a tensor. Its also normalizing our data for us by scaling the images to be between 0 and 1.
 #
 #
-# .. note:: ToTensor only normalized image data that is in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
+# .. note:: ToTensor normalizes image data that is in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
 #
 #
 # Check out the other `TorchVision Transforms <https://pytorch.org/docs/stable/torchvision/transforms.html>`_
@@ -100,32 +100,18 @@ target_transform= transforms.Lambda(lambda y: torch.zeros(10, dtype=torchfloat).
 data_dir='data'
 batch_size=4
 
-data_transforms = {
-    'train': transforms.Compose([
-        transforms.RandomResizedCrop(224),
-        transforms.RandomHorizontalFlip(),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ]),
-    'val': transforms.Compose([
-        transforms.Resize(256),
-        transforms.CenterCrop(224),
-        transforms.ToTensor(),
-        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
-    ]),
-}
-image_datasets = {x: datasets.ImageFolder(os.path.join(data_dir, x),
-                                          data_transforms[x])
-                                          for x in ['train', 'val']}
+# get training data (transform, DataSet, DataLoader)
+train_transforms = transforms.Compose([
+    transforms.RandomResizedCrop(224),
+    transforms.RandomHorizontalFlip(),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+])
 
-dataloaders = {x: torch.utils.data.DataLoader(image_datasets[x], 
-                                            batch_size=batch_size,
-                                            shuffle=True, num_workers=4)
-                                            for x in ['train', 'val']}
+train_dataset = datasets.ImageFolder(os.path.join(data_dir, 'train'), train_transforms)
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=4)
 
-dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
-
-class_names = image_datasets['train'].classes
+classes = train_dataset.classes
 
 ##################################################################
 # Next learn how to `build the model <build_model_tutorial.html>`_
@@ -137,7 +123,7 @@ class_names = image_datasets['train'].classes
 # ----------------------------------------
 # | `Tensors <tensor_tutorial.html>`_
 # | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transforms <transforms_tutorial.html>`
+# | `Transforms <transforms_tutorial.html>`_
 # | `Build Model <build_model_tutorial.html>`_
 # | `Optimization Loop <optimization_tutorial.html>`_
 # | `AutoGrad <autograd_quickstart_tutorial.html>`_
