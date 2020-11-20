@@ -124,8 +124,8 @@ loss = cost_function(preds, labels)
 # Here is an example built in Cross Entropy Loss cost function call from the PyTorch nn module.
 # 
 
- cost_function = nn.CrossEntropyLoss()
- loss = cost_function(model_prediction, true_value)
+cost_function = nn.CrossEntropyLoss()
+loss = cost_function(model_prediction, true_value)
 
 ######################################################
 # In addition to the included PyTorch cost functions you can create your own custom cost functions as long as they are differentiable.
@@ -133,7 +133,7 @@ loss = cost_function(preds, labels)
 # See this example custom Cross Entropy Loss implementation from the `Stanford CS230 <https://cs230.stanford.edu/blog/pytorch/#loss-function>`_ course below
 #
 
- def myCrossEntropyLoss(outputs, labels):
+def myCrossEntropyLoss(outputs, labels):
     batch_size = outputs.size()[0]               # batch_size
     outputs = F.log_softmax(outputs, dim=1)      # compute the log of softmax values
     outputs = outputs[range(batch_size), labels] # pick the values corresponding to the labels
@@ -173,7 +173,7 @@ optimizer.step()
 # An Optimizer in can be initalized as with the Pytorch optim module for example lets initialize an SGD optimizer 
 # it takes our model and our learning rate hyperparameter as input.
 
- optimizer = optim.SGD(model.parameters(), lr=learning_rate)
+optimizer = optim.SGD(model.parameters(), lr=learning_rate)
 
 ######################################################
 # In addition to SDG there are many different optimizers and variations of this method in PyTorch such 
@@ -183,12 +183,7 @@ optimizer.step()
 # With this we have all we need to know to train, validate and test PyTorch deep learning models.
 
 ##################################################################
-# Pytorch Quickstart Topics
-# -------------------------
-#| `Tensors <tensor_tutorial.html>`_
-#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transforms <transforms_tutorial.html>`_
-#| `Build Model <build_model_tutorial.html>`_
-#| `Optimization Loop <optimization_tutorial.html>`_
-#| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Use Model <save_load_run_tutorial.html>`_
+# Next: Learn more about `Automatic Differentiation with AutoGrad <autograd_tutorial.html>`_.
+
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#

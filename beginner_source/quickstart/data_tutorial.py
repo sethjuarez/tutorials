@@ -22,7 +22,7 @@ Datasets & Dataloaders
 # 
 # A whole set of example datasets such as Fashion MNIST that implement this interface are built into PyTorch extension libraries. These are useful for benchmarking and testing your models before training on your own custom datasets.
 # 
-#  You can find some of them below. 
+# You can find some of them below. 
 #
 #  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>`_
 #  - `Text Datasets  <https://pytorch.org/text/datasets.html>`_
@@ -102,7 +102,7 @@ class CustomImageDataset(Dataset):
         
 #################################################################
 # Imports 
-# -----------------
+# -------
 # 
 # Import os for file handling, torch for PyTorch, `pandas <https://pandas.pydata.org/>`_ for loading labels, `torch vision <https://pytorch.org/blog/pytorch-1.7-released/>`_ to read image files, and Dataset to implement the Dataset interface.
 # 
@@ -166,7 +166,7 @@ def __getitem__(self, idx):
 
 #################################################################
 # Preparing your data for training with DataLoaders
-# -----------------
+# -------------------------------------------------
 #
 # Now we have a organized mechansim for managing data which is great, but there is still a lot of manual work we would have to do train a model with our Dataset. 
 # 
@@ -184,14 +184,5 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 # 
 # Next: Learn more about how to `transform that data for training <transforms_tutorial.html>`_.
 #
-
-##################################################################
-# Pytorch Quickstart Topics
-# -----------------
-#| `Tensors <tensor_tutorial.html>`_
-#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transforms <transforms_tutorial.html>`_
-#| `Build Model <build_model_tutorial.html>`_
-#| `Optimization Loop <optimization_tutorial.html>`_
-#| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Use Model <save_load_run_tutorial.html>`_
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#

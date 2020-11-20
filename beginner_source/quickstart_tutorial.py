@@ -1,7 +1,6 @@
 """
 PyTorch Quickstart
 ===================
-
 The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. In this quickstart we will go through an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these core steps using Pytorch.
 
 Working with data
@@ -202,5 +201,8 @@ with torch.no_grad():
 # | `AutoGrad <quickstart/autograd_tutorial.html>`_
 # | `Save, Load and Use Model <quickstart/save_load_run_tutorial.html>`_
 #
-# *Authors: Seth Juarez, Ari Bornstein, Cassie Breviu, Dmitry Soshnikov*
+
+##################################################################
+# *Authors: Cassie Breviu, Dmitry Soshnikov, Ari Bornstein, Seth Juarez*
+# 
 

@@ -36,14 +36,15 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
                      )
 
 ##############################################
-# Pytorch Datasets
+# PyTorch Datasets
 # --------------------------
 # 
 # We are using the built-in open FashionMNIST datasets from the PyTorch library. For more info on the Datasets and Loaders check out `this <data_quickstart_tutorial.html>`_ resource. The ``Train=True`` indicates we want to download the training dataset from the built-in datasets, ``Train=False`` indicates to download the testing dataset. This way we have data partitioned out for training and testing within the provided PyTorch datasets. We will apply the same transfoms to both the training and testing datasets.
 # 
 # From the docs:
 # 
-# ``torchvision.datasets.FashionMNIST(root, train=True, transform=None, target_transform=None, download=False)``
+
+torchvision.datasets.FashionMNIST(root, train=True, transform=None, target_transform=None, download=False)
 
 ##############################################
 # Transform: Features
@@ -116,18 +117,7 @@ classes = train_dataset.classes
 ##################################################################
 # Next learn how to `build the model <build_model_tutorial.html>`_
 #
-
-
-##################################################################
-# Pytorch Quickstart Topics
-# ----------------------------------------
-# | `Tensors <tensor_tutorial.html>`_
-# | `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-# | `Transforms <transforms_tutorial.html>`_
-# | `Build Model <build_model_tutorial.html>`_
-# | `Optimization Loop <optimization_tutorial.html>`_
-# | `AutoGrad <autograd_quickstart_tutorial.html>`_
-# | `Save, Load and Use Model <save_load_run_tutorial.html>`_
-
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
 
 

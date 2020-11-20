@@ -7,9 +7,9 @@ similar to **NumPy array**, and supports similar operations. However,
 there are two very important features of Torch tensors that make them
 especially useful for training large-scale neural networks:
 
--  Tensor operations can be performed on GPU using CUDA
+-  Tensor operations can be performed on GPUs or other specialized hardware to accelerate computing
 -  Tensor operations support automatic differentiation using
-   `AutoGrad <autograd_tutorial.html>`__
+   `pytorch.autograd engine <autograd_tutorial.html>`__
 
 Conversion between Torch tensors and NumPy arrays can be done easily:
 
@@ -25,7 +25,10 @@ print(f"Tensor={tensor}, Array={tensor.numpy()}")
 
 
 ######################################################################
-# .. note:: When using CPU for computations, tensors converted from arrays share the same memory for data. Thus, changing the underlying array will also affect the tensor.
+# .. note:: 
+#    When using CPU for computations, tensors converted from arrays 
+#    share the same memory for data. Thus, changing the underlying array
+#    will also affect the tensor.
 # 
 
 
@@ -112,7 +115,7 @@ z = x*y
 
 ######################################################################
 # Note, that ``*`` means elementwise product, and not the matrix product.
-# To compute matrix product, we need to use ``matmul`` function, as shown
+# To compute matrix product, we need to use `@` operator or ``matmul`` function, as shown
 # below.
 # 
 # Using functions
@@ -158,6 +161,13 @@ torch.add(x,y,out=z)
 
 x.add_(y) # x will be modified
 
+######################################################################
+# .. note::
+#      In-place operations save some memory, but can be problematic when 
+#      computing derivatives because of an immediate loss
+#      of history. Hence, their use is discouraged.
+
+
 
 ######################################################################
 # Resizing and Indexing
@@ -176,7 +186,7 @@ print(x.view(5,-1)) # will result in size 5x3
 
 ######################################################################
 # The number of elements in a view should be the same as in the
-# original tensor, and that you can use ``-1`` in one of the dimensions to
+# original tensor. You can use ``-1`` in one of the dimensions to
 # figure out this dimension automatically.
 # 
 
@@ -205,19 +215,19 @@ print(x[0].size(), x[:,0].size(), x[...,1].size()) # will give 5, 3, 3
 # numerical value using ``item()``:
 # 
 
-print(x.sum().item()) # will print 
+val = x.sum().item() # will compute the sum of all elements
 
 
 ######################################################################
-# GPU Computations
+# Hardware-Accelerated Computations
 # ~~~~~~~~~~~~~~~~
 # 
 # One of the major benefits of using PyTorch is the ability to perform
-# tensor operations on GPU. To do that, we need to explicitly **move**
-# tensors to GPU using ``.to`` method.
+# tensor operations on GPUs and some other specialized hardware. To do that, 
+# we need to explicitly **move** tensors to another computing platform using ``.to`` method.
 # 
-# In most of the cases, we check for the availability of GPU on our
-# machine, and define the ``device`` object accordingly. Then we move all
+# In most of the cases, we check for the availability of GPU in the beginning
+# of the script, and define the ``device`` object accordingly. Then we move all
 # tensors to that device before performing the computations:
 # 
 
@@ -228,9 +238,9 @@ else:
 
 print("Doing computations on {}".format(device))
 
-x = torch.randn(3,5,device=device)
-y = torch.ones_like(x)
-y = y.to(device)
+x = torch.randn(3,5,device=device) # create tensor on specified device
+y = torch.ones_like(x) # create tensor on CPU
+y = y.to(device) # move tensor to another device
 z = x+y # this is performed on GPU if it is available
 print(z)
 print(z.to("cpu",torch.double))
@@ -242,16 +252,8 @@ print(z.to("cpu",torch.double))
 # computational time, because we need to copy and transform the data when
 # moving it from GPU anyway.
 # 
-# Next learn how to load built in and custom `datasets with dataloaders <data_quickstart_tutorial.html>`_
+# Next learn how to load built in and custom `datasets with dataloaders <data_tutorial.html>`_
+#
+# .. include:: /beginner_source/quickstart/qs_toc.txt
 #
 
-##################################################################
-# Pytorch Quickstart Topics
-# -----------------
-#| `Tensors <tensor_tutorial.html>`_
-#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transforms <transforms_tutorial.html>`_
-#| `Build Model <build_model_tutorial.html>`_
-#| `Optimization Loop <optimization_tutorial.html>`_
-#| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Use Model <save_load_run_tutorial.html>`_

@@ -140,14 +140,5 @@ output.size()
 #
 # Next: Learn more about how the `optimzation loop works with this example <optimization_tutorial.html>`_.
 #
-
-##################################################################
-# Pytorch Quickstart Topics
-# -----------------
-#| `Tensors <tensor_tutorial.html>`_
-#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transforms <transforms_tutorial.html>`_
-#| `Build Model <build_model_tutorial.html>`_
-#| `Optimization Loop <optimization_tutorial.html>`_
-#| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Use Model <save_load_run_tutorial.html>`_
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
