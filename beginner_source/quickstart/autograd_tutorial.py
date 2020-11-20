@@ -1,5 +1,5 @@
 """
-Automatic Differentiation with AutoGrad
+Automatic Differentiation with ``torch.autograd``
 =======================================
 
 When training neural networks, the most frequently used algorithm is
@@ -7,8 +7,8 @@ When training neural networks, the most frequently used algorithm is
 adjusted according to the **gradient** of the loss function with respect
 to the given parameter.
 
-To compute those gradients, PyTorch has a built-in mechanism called
-**AutoGrad**. It supports automatic computation of gradient for any
+To compute those gradients, PyTorch has a built-in differentiation engine
+called ``torch.autograd``. It supports automatic computation of gradient for any
 computational graph.
 
 Consider the simplest one-layer neural network, with input ``x``,
@@ -87,7 +87,127 @@ print(b.grad)
 
 
 ######################################################################
-# Tensor Gradients and Jacobian Products
+# Disabling Gradient Tracking
+# ---------------------------
+# 
+# By default, all tensors with ``requires_grad=True`` are tracking their
+# computational history and support gradient computation. However, there
+# are some cases when we do not need to do that, for example, when we have
+# trained the model and just want to apply it to some input data, i.e. we
+# only want to do *forward* computations through the network. We can stop
+# tracking computations by surrounding our computation code with
+# ``with torch.no_grad()`` block:
+# 
+
+z = torch.matmul(x,w)+b
+print(z.requires_grad)
+
+with torch.no_grad():
+    z = torch.matmul(x,w)+b
+print(z.requires_grad)
+
+
+######################################################################
+# Another way to achieve the same result is to use the ``detach()`` method
+# on the tensor:
+# 
+
+z = torch.matmul(x,w)+b
+z_det = z.detach()
+print(z_det.requires_grad)
+
+######################################################################
+# There are several reasons you might want to disable gradient tracking:
+#   - To mark some parameters in your neural network at **frozen parameters**. This is
+#     a very common scenario for 
+#     `finetuning a pretrained network <https://pytorch.org/tutorials/beginner/finetuning_torchvision_models_tutorial.html>`__
+#   - To **speed up computations** when you are only doing forward pass, because computations on tensors that do
+#     not track gradients would be more efficient.
+
+
+######################################################################
+# Example of Gradient Descent
+# ---------------------------
+# 
+# Let's use the AutoGrad functionality to minimize a simple function of
+# two variables :math:`f(x_1,x_2)=(x_1-3)^2+(x_2+2)^2`. We will use the
+# ``x`` tensor to represent the coordinates of a point. To do the gradient
+# descent, we start with some initial value :math:`x^{(0)}=(0,0)`, and
+# compute each consecutive step using:
+# 
+# .. math::
+# 
+# 
+#    x^{(n+1)} = x^{(n)} - \eta\nabla f
+# 
+# Here :math:`\eta` is so-called **learning rate** (we will call it ``lr``
+# in our code), and
+# :math:`\nabla f = (\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2})`
+# is the gradient of :math:`f`.
+# 
+# We will start by defining the initial value of ``x`` and the function
+# ``f``:
+# 
+
+x = torch.zeros(2,requires_grad=True)
+f = lambda x : (x-torch.tensor([3,-2])).pow(2).sum()
+lr = 0.1
+
+
+######################################################################
+# For the gradient descent, let's do 15 iterations. On each iteration, we
+# will update the coordinate tensor ``x`` and print its coordinates to
+# make sure that we are approaching the minimum:
+# 
+
+for i in range(15):
+    y = f(x)
+    y.backward()
+    gr = x.grad
+    x.data.add_(-lr*gr)
+    x.grad.zero_()
+    print("Step {}: x[0]={}, x[1]={}".format(i,x[0],x[1]))
+
+
+######################################################################
+# As you can see, we have obtained the values close to the optimal point
+# :math:`(3,-2)`. `Training a neural network <optimization_tutorial.html>`_ is in fact a very similar
+# process, we will need to do a number of iterations to minimize the value
+# of **loss function**.
+
+######################################################################
+# More on Computational Graphs
+# ----------------------------
+# Conceptually, autograd keeps a record of data (tensors) & all executed
+# operations (along with the resulting new tensors) in a directed acyclic
+# graph (DAG) consisting of
+# `Function <https://pytorch.org/docs/stable/autograd.html#torch.autograd.Function>`__
+# objects. In this DAG, leaves are the input tensors, roots are the output
+# tensors. By tracing this graph from roots to leaves, you can
+# automatically compute the gradients using the chain rule.
+#
+# In a forward pass, autograd does two things simultaneously:
+#
+# - run the requested operation to compute a resulting tensor, and
+# - maintain the operation’s *gradient function* in the DAG.
+#
+# The backward pass kicks off when ``.backward()`` is called on the DAG
+# root. ``autograd`` then:
+#
+# - computes the gradients from each ``.grad_fn``,
+# - accumulates them in the respective tensor’s ``.grad`` attribute, and
+# - using the chain rule, propagates all the way to the leaf tensors.
+#
+# .. note::
+#   **DAGs are dynamic in PyTorch**
+#   An important thing to note is that the graph is recreated from scratch; after each
+#   ``.backward()`` call, autograd starts populating a new graph. This is
+#   exactly what allows you to use control flow statements in your model;
+#   you can change the shape, size and operations at every iteration if
+#   needed.
+
+######################################################################
+# Optional Reading: Tensor Gradients and Jacobian Products
 # --------------------------------------
 # 
 # In many cases, we have a scalar loss function, and we need to compute
@@ -149,103 +269,9 @@ print("\nCall after zeroing gradients\n",inp.grad)
 # 
 
 
-######################################################################
-# Disabling Gradient Tracking
-# ---------------------------
-# 
-# By default, all tensors with ``requires_grad=True`` are tracking their
-# computational history and support gradient computation. However, there
-# are some cases when we do not need to do that, for example, when we have
-# trained the model and just want to apply it to some input data, i.e. we
-# only want to do *forward* computations through the network. We can stop
-# tracking computations by surrounding our computation code with
-# ``with torch.no_grad()`` block:
-# 
 
-z = torch.matmul(x,w)+b
-print(z.requires_grad)
-
-with torch.no_grad():
-    z = torch.matmul(x,w)+b
-print(z.requires_grad)
-
-
-######################################################################
-# Another way to achieve the same result is to use the ``detach()`` method
-# on the tensor:
-# 
-
-z = torch.matmul(x,w)+b
-z_det = z.detach()
-print(z_det.requires_grad)
-
-
-######################################################################
-# All forward-pass computations on tensors that do not track gradients
-# would be more efficient.
-# 
-
-
-######################################################################
-# Example of Gradient Descent
-# ---------------------------
-# 
-# Let's use the AutoGrad functionality to minimize a simple function of
-# two variables :math:`f(x_1,x_2)=(x_1-3)^2+(x_2+2)^2`. We will use the
-# ``x`` tensor to represent the coordinates of a point. To do the gradient
-# descent, we start with some initial value :math:`x^{(0)}=(0,0)`, and
-# compute each consecutive step using:
-# 
-# .. math::
-# 
-# 
-#    x^{(n+1)} = x^{(n)} - \eta\nabla f
-# 
-# Here :math:`\eta` is so-called **learning rate** (we will call it ``lr``
-# in our code), and
-# :math:`\nabla f = (\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2})`
-# is the gradient of :math:`f`.
-# 
-# We will start by defining the initial value of ``x`` and the function
-# ``f``:
-# 
-
-x = torch.zeros(2,requires_grad=True)
-f = lambda x : (x-torch.tensor([3,-2])).pow(2).sum()
-lr = 0.1
-
-
-######################################################################
-# For the gradient descent, let's do 15 iterations. On each iteration, we
-# will update the coordinate tensor ``x`` and print its coordinates to
-# make sure that we are approaching the minimum:
-# 
-
-for i in range(15):
-    y = f(x)
-    y.backward()
-    gr = x.grad
-    x.data.add_(-lr*gr)
-    x.grad.zero_()
-    print("Step {}: x[0]={}, x[1]={}".format(i,x[0],x[1]))
-
-
-######################################################################
-# As you can see, we have obtained the values close to the optimal point
-# :math:`(3,-2)`. Training a neural network is in fact a very similar
-# process, we will need to do a number of iterations to minimize the value
-# of **loss function**.
-# 
-# Next: Learn more about `how to use AutoGrad to train a neural network model <optimization_tutorial.html>`_.
+###################################################################### 
+# Next: Learn more about `how to use automatic differentiation to train a neural network model <optimization_tutorial.html>`_.
 #
-
-##################################################################
-# Pytorch Quickstart Topics
-# -----------------
-#| `Tensors <tensor_tutorial.html>`_
-#| `DataSets and DataLoaders <data_quickstart_tutorial.html>`_
-#| `Transforms <transforms_tutorial.html>`_
-#| `Build Model <build_model_tutorial.html>`_
-#| `Optimization Loop <optimization_tutorial.html>`_
-#| `AutoGrad <autograd_tutorial.html>`_
-#| `Save, Load and Use Model <save_load_run_tutorial.html>`_
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
