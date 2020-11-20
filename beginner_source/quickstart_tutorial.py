@@ -5,19 +5,17 @@ The basic machine learning concepts in any framework should include: Working wit
 
 Working with data
 -----------------
-"""
+PyTorch has two basic data primitives: ``DataSet`` and ``DataLoader``.
+These ``DataSet`` objects include a ``transforms`` mechanism to
+modify data in-place. Below is an example of how to load that data from the Pytorch open datasets and transform the data to a normalized tensor. 
 
-######################################################################
-#
-# PyTorch has two basic data primitives: ``DataSet`` and ``DataLoader``.
-# These ``DataSet`` objects include a ``transforms`` mechanism to
-# modify data in-place. Below is an example of how to load that data from the Pytorch open datasets and transform the data to a normalized tensor. 
-# 
-# To see more examples and details of how to work with Tensors, Datasets, DataLoaders and Transforms in Pytoch with this example checkout these resources:
-#  
-#  - `Tensors <quickstart/tensor_tutorial.html>`_
-#  - `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
-#  - `Transforms <quickstart/transforms_tutorial.html>`_
+To see more examples and details of how to work with Tensors, Datasets, DataLoaders and Transforms in Pytoch with this example checkout these resources:
+  
+- `Tensors <quickstart/tensor_tutorial.html>`_
+- `DataSet and DataLoader <quickstart/data_quickstart_tutorial.html>`_
+- `Transforms <quickstart/transforms_tutorial.html>`_
+
+"""
 
 import torch
 import torch.nn as nn
