@@ -3,7 +3,7 @@ Optimizing Model Parameters
 ===========================
 Now that we have a model and data it's time to train, validate and test our model by optimizating it's paramerters on our data! 
 
-To get started lets take a look at some example model Optimization code:
+To get started lets take a look at some example model optimization code:
 """
 
 # Initilize hyper parameters
@@ -52,7 +52,7 @@ for epoch in range(num_epochs):
     print('acc: {:>0.1f}%, avg loss: {:>8f}'.format(100*correct, test_loss))
 
 ######################################################
-# To understand this code need to understand a how to handle 4 core deep learning concepts in PyTorch
+# To understand this code need to understand a how to handle 4 core deep learning concepts in PyTorch:
 #
 # 1. Hyperparameters (learning rates, batch sizes, epochs etc)
 # 2. Optimization Loops
@@ -70,7 +70,7 @@ for epoch in range(num_epochs):
 #
 # - **Number of Epochs**- the number times iterate over the dataset to update model parameters
 # - **Batch Size** - the number of samples in the dataset to evaluate before you update model parameters
-# - **Learning Rate** - how much to update models parameters at each batch/epoch set this to large and you won't update optimally if you set it to small you will learn really slowly 
+# - **Learning Rate** - how much to update models parameters at each batch/epoch. Set this value too large and your model won't learn optimally if you set it too small and it will learn really slowly. 
  
 learning_rate = 1e-3
 batch_size = 64
@@ -80,7 +80,7 @@ epochs = 5
 # Optimizaton Loops
 # -----------------
 #
-# Once we set our hyperparameters we can then train and optimize our model with optimization loop.
+# Once we set our hyperparameters, we can then train and optimize our model with an optimization loop.
 #
 # Each iteration of the optimiziation loop is called an Epoch. Each epoch is comprized of three main subloops in PyTorch.
 #
@@ -111,7 +111,7 @@ for epoch in range(num_epochs): # Optimization Loop
 # Loss and Cost Function
 # ----------------------
 #
-# The loss is the value used to update our parameters. To calculate the loss we make a prediction using the inputs of our given data sample.
+# The loss is the value used to update our parameters. To calculate the loss we make a prediction using the inputs of our given data sample and compare it with a cost function against the true data label value.
 #
 
 preds = model(inputs)
@@ -130,7 +130,7 @@ loss = cost_function(model_prediction, true_value)
 ######################################################
 # In addition to the included PyTorch cost functions you can create your own custom cost functions as long as they are differentiable.
 # 
-# See this example custom Cross Entropy Loss implementation from the `Stanford CS230 <https://cs230.stanford.edu/blog/pytorch/#loss-function>`_ course below
+# See this example custom Cross Entropy Loss implementation from the `Stanford CS230 <https://cs230.stanford.edu/blog/pytorch/#loss-function>`_ course below.
 #
 
 def myCrossEntropyLoss(outputs, labels):
@@ -140,7 +140,7 @@ def myCrossEntropyLoss(outputs, labels):
     return -torch.sum(outputs)/num_examples
 
 ######################################################
-# It can then be called just like out of the box implementation above
+# It can be called just like the out of the box implementation above.
 #
 
 loss = myCrossEntropyLoss(model_prediction, true_value)
@@ -151,8 +151,8 @@ loss = myCrossEntropyLoss(model_prediction, true_value)
 #
 # Optimizer
 # ---------
-# Using the loss we can then optimize our models parameters. By default each tensor maintains 
-# a graph of every operation applied on it unless otherwise specified using the ``torch.no_grad()`` command.
+# Using the loss, we can then optimize our models parameters. By default, each tensor maintains 
+# a graph of every operation applied on it unless otherwise specified using the torch.no_grad() command.
 
 ############################################################
 # .. figure:: https://discuss.pytorch.org/uploads/default/original/1X/c7e0a44b7bcebfb41315b56f8418ce37f0adbfeb.png
@@ -170,14 +170,14 @@ optimizer.step()
 # The standard method for optimization is called Stochastic Gradient Descent, to learn more check out this awesome 
 # video by `3blue1brown <https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi>`_.
 # 
-# An Optimizer in can be initalized as with the Pytorch optim module for example lets initialize an SGD optimizer 
-# it takes our model and our learning rate hyperparameter as input.
+# An Optimizer can be initalized with the Pytorch optim module, as an example lets initialize an SGD optimizer. 
+# The PyTorch SGD optimizer takes our model and our learning rate hyperparameter as input.
 
 optimizer = optim.SGD(model.parameters(), lr=learning_rate)
 
 ######################################################
-# In addition to SDG there are many different optimizers and variations of this method in PyTorch such 
-# as ADAM and RMSProp that work better for different kinds of models. They are outside the scope 
+# In addition to SGD there are many different optimizers and variations of this method in PyTorch such 
+# as ADAM and RMSProp, that work better for different kinds of models. They are outside the scope 
 # of this Blitz, but can check out the full list of optimizers `here <https://pytorch.org/docs/stable/optim.html>`_.
 # 
 # With this we have all we need to know to train, validate and test PyTorch deep learning models.
