@@ -48,7 +48,7 @@ model = nn.Sequential(
     
 print(model)
 
-#############################################
+##############
 # Class nn.Module Example:
 # --------------------------
 #
@@ -56,6 +56,10 @@ print(model)
 class NeuralNework(nn.Module):
     def __init__(self, x):
         super(NeuralNework, self).__init__()
+
+class Model(nn.Module):
+    def __init__(self, x):
+        super(Model, self).__init__()
         self.layer1 = nn.Linear(28*28, 512)
         self.layer2 = nn.Linear(512, 512)
         self.output = nn.Linear(512, 10)
@@ -93,6 +97,20 @@ print('Using {} device'.format(device))
 #
 
 # Here is an example using one of the training_data set items:
+=======
+#
+# Lets break down each model layer in the FashionMNIST model.
+#
+##################################################
+# [nn.Flatten](https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html) to reduce tensor dimensions to one.
+# 
+# From the docs:
+# ```
+# torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)
+# ```
+#
+# Here is an example using one of the training_data set items:
+
 tensor = training_data[0][0]
 print(tensor.size())
 
@@ -104,18 +122,12 @@ model = nn.Sequential(
 flattened_tensor = model(tensor)
 flattened_tensor.size()
 
-# Output: torch.Size([1, 784])
-
 ##############################################
-# `nn.Linear <https://pytorch.org/docs/stable/generated/torch.nn.Linear.html>`_ to add a linear layer to the model.
-# -------------------------------
+# [nn.Linear](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html) to add a linear layer to the model.
 #
 # Now that we have flattened our tensor dimension we will apply a linear layer transform that will calculate/learn the weights and the bias.
 #
-# From the docs:
-# 
-# ``torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)``
-#
+# Lets take a look at the resulting data example with the flatten layer and linear layer added:
 
 input = training_data[0][0]
 print(input.size())
@@ -151,3 +163,4 @@ output.size()
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
 #| `Save, Load and Run Model <save_load_run_tutorial.html>`_
+

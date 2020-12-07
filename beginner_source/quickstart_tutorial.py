@@ -2,6 +2,7 @@
 PyTorch Quickstart
 ===================
 
+
 The basic machine learning concepts in any framework should include: Working with data, Creating models, Optimizing Parameters, Saving and Loading Models. In this quickstart we will go through an example of an applied machine learning model using the FashionMNIST dataset that demonstrates these core steps using Pytorch.
 
 Working with data
@@ -43,15 +44,11 @@ test_data = datasets.FashionMNIST('data', train=False, download=True,
     ])
 )
 
-# batch size
 batch_size = 64
 
-# data loader
 train_dataloader = DataLoader(training_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 
-
-######################################################################
 # Creating Models
 # ---------------
 # 
@@ -62,6 +59,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print('Using {} device'.format(device))
 
 # in-line model
+
 model = nn.Sequential(
         nn.Flatten(),
         nn.Linear(28*28, 512),
@@ -93,7 +91,6 @@ cost = torch.nn.BCELoss()
 learning_rate = 1e-3
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-
 # Create the training function
 
 def train(dataloader, model, loss, optimizer):
@@ -109,6 +106,7 @@ def train(dataloader, model, loss, optimizer):
         if batch % 100 == 0:
             loss, current = loss.item(), batch * len(X)
             print(f'loss: {loss:>7f}  [{current:>5d}/{size:>5d}]')
+
 
 # Create the validation/test function
 
@@ -150,12 +148,13 @@ print('Done!')
 # -------------
 # 
 # PyTorch has different ways you can save your model. One way is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
-
 # Saving PyTorch Model Dictionary
+
 torch.save(model.state_dict(), 'model.pth')
 print('Saved PyTorch Model to model.pth')
 
 # Save to ONNX, create dummy variable to traverse graph
+
 x = torch.randint(255, (1, 28*28), dtype=torch.float).to(device) / 255
 onnx.export(model, x, 'model.onnx')
 print('Saved onnx model to model.onnx')

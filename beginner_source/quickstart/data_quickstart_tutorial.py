@@ -14,15 +14,13 @@ Datasets & Dataloaders
 # .. figure:: /_static/img/quickstart/typesdata.png
 #    :alt: typesdata
 # 
-
-############################################################
 # Different data types require different python libraries to load and process such as `openCV <https://opencv.org/>`_ and `PIL <https://pillow.readthedocs.io/en/stable/reference/Image.html>`_ for images, `NLTK <https://www.nltk.org/>`_ and `spaCy <https://spacy.io/>`_ for text and `Librosa <https://librosa.org/doc/latest/index.html>`_ for audio. 
 # 
 # If not properly organized, code for processing data samples can quickly get messy and become hard to maintain. Since different model architectures can be applied to many data types, we ideally want our dataset code to be decoupled from our model training code. To this end, PyTorch provides a simple Datasets interface for linking managing collections of data. 
 # 
 # A whole set of example datasets such as Fashion MNIST that implement this interface are built into PyTorch extension libraries. These are useful for benchmarking and testing your models before training on your own custom datasets.
 # 
-#  You can find some of them below. 
+#  You can find some of them below.
 #
 #  - `Image Datasets <https://pytorch.org/docs/stable/torchvision/datasets.html>`_
 #  - `Text Datasets  <https://pytorch.org/text/datasets.html>`_
@@ -32,7 +30,7 @@ Datasets & Dataloaders
 #################################################################
 # Iterating through a Dataset
 # -----------------
-# 
+#
 # Once we have a Dataset we can index it manually like a list `clothing[index]`. 
 # 
 # Here is an example of how to load the fashion MNIST dataset from torch vision.
@@ -58,6 +56,7 @@ for i in range(1, cols*rows +1):
 plt.show()
 
 #################################################################
+
 # .. figure:: /_static/img/quickstart/fashion_mnist.png
 #    :alt: fashion_mnist
 #
@@ -103,11 +102,10 @@ class CustomImageDataset(Dataset):
 #################################################################
 # Imports 
 # -----------------
-# 
+#
 # Import os for file handling, torch for PyTorch, `pandas <https://pandas.pydata.org/>`_ for loading labels, `torch vision <https://pytorch.org/blog/pytorch-1.7-released/>`_ to read image files, and Dataset to implement the Dataset interface.
 # 
 # Example:
-#
 
 import os
 import torch
@@ -150,8 +148,6 @@ def __len__(self):
 # In this sample if provided a tensor we convert the tensor to a list containing our index. We then load the file at the given index from our image directory as well as the image label from our pandas annotations DataFrame. This image and label are then wrapped in a single sample dictionary which we can apply a Transform on and return. To learn more about Transforms see the next section of the Blitz. 
 # 
 # Example:
-#
-
 def __getitem__(self, idx):
     if torch.is_tensor(idx):
         idx = idx.tolist()
@@ -195,3 +191,4 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
 #| `Save, Load and Run Model <save_load_run_tutorial.html>`_
+

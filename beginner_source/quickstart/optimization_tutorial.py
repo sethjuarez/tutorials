@@ -4,6 +4,7 @@ Optimizing Model Parameters
 Now that we have a model and data it's time to train, validate and test our model by optimizating it's paramerters on our data! 
 
 To do this we need to understand a how to handle 5 core deep learning concepts in PyTorch
+
  1. Hyperparameters (learning rates, batch sizes, epochs etc)
  2. Optimization Loops
  3. Loss
@@ -12,13 +13,11 @@ To do this we need to understand a how to handle 5 core deep learning concepts i
 
 Let's dissect these concepts one by one and look at some code at the end we'll see how it all fits together.
 
-Hyperparameters 
------------------
-"""
-
 ######################################################
-# Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
+# Hyperparameters 
+# -----------------
 #
+# Hyperparameters are adjustable parameters that let you control the model optimization process. For example, with neural networks, you can configure:
 # - **Number of Epochs**- the number times iterate over the dataset to update model parameters
 # - **Batch Size** - the number of samples in the dataset to evaluate before you update model parameters
 # - **Cost Function** - the method used to decide how to evaluate the model on a data sample to update the model parameters
@@ -36,6 +35,7 @@ epochs = 5
 # 
 # The optimziation loop is comprized of three main subloops in PyTorch. 
 #
+
 
 ############################################################
 # .. figure:: /_static/img/quickstart/optimizationloops.png
@@ -69,6 +69,7 @@ for epoch in range(num_epochs):
 
 preds = model(inputs)
 loss = cost_function(preds, labels)
+
 # Make sure previous gradients are cleared
 optimizer.zero_grad() 
 # Calculates gradients with respect to loss
@@ -77,6 +78,16 @@ optimizer.step()
 
 ######################################################
 # The standard method for optimization is called Stochastic Gradient Descent, to learn more check out this awesome video by `3blue1brown <https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi>`_. There are many different optimizers and variations of this method in PyTorch such as ADAM and RMSProp that work better for different kinds of models, they are out side the scope of this Blitz, but can check out the full list of optimizers `here <https://pytorch.org/docs/stable/optim.html>`_ 
+=======
+
+######################################################
+# AutoGrad and Optimizer (We might want to split this when we go more in depth on autograd )
+# -----------------
+# By default each tensor maintains a graph of every operation applied on it unless otherwise specified using the torch.no_grad() command. 
+#
+# `Autograd graph <https://discuss.pytorch.org/uploads/default/original/1X/c7e0a44b7bcebfb41315b56f8418ce37f0adbfeb.png>`_
+#
+# PyTorch uses this graph to automatically update parameters with respect to our models loss during training. This is done with one line loss.backwards(). Once we have our gradients the optimizer is used to propgate the gradients from the backwards command to update all the parameters in our model. 
 
 ######################################################
 # Putting it all together lets look at a basic optimization loop
@@ -109,3 +120,4 @@ optimizer.step()
 #| `Optimization Loop <optimization_tutorial.html>`_
 #| `AutoGrad <autograd_tutorial.html>`_
 #| `Save, Load and Run Model <save_load_run_tutorial.html>`_
+

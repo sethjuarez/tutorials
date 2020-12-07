@@ -127,10 +127,10 @@ dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 
 class_names = image_datasets['train'].classes
 
+
 ##################################################################
 # Next learn how to `build the model <build_model_tutorial.html>`_
 #
-
 
 ##################################################################
 # Pytorch Quickstart Topics
