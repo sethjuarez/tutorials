@@ -6,6 +6,7 @@ Build Model Tutorial
 ###############################################
 # The data has been loaded and transformed we can now build the model. 
 # We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ 
+
 # predefined layers that PyTorch has that can simplify our code.
 # 
 # In the below example, for our FashionMNIT image dataset, we are using a `Sequential` 
@@ -53,6 +54,7 @@ print(model)
 # --------------------------
 #
 
+
 class NeuralNetwork(nn.Module):
     def __init__(self):
         super(NeuralNetwork, self).__init__()
@@ -62,6 +64,7 @@ class NeuralNetwork(nn.Module):
         self.output = nn.Linear(512, 10)
 
     def forward(self, x):
+
         x = self.flatten(x)
         x = F.relu(self.layer1(x))
         x = F.relu(self.layer2(x))
@@ -96,8 +99,6 @@ print('Using {} device'.format(device))
 #
 # From the docs:
 # ``torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)``
-#
-
 # Here is an example using one of the training_data set items:
 tensor = training_data[0][0]
 print(tensor.size())
@@ -118,6 +119,7 @@ flattened_tensor.size()
 #
 # Now that we have flattened our tensor dimension we will apply a linear layer transform that will calculate/learn the weights and the bias.
 #
+
 # From the docs:
 # 
 # ``torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)``
