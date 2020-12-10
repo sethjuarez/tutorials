@@ -51,6 +51,7 @@ batch_size = 64
 train_dataloader = DataLoader(training_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 test_dataloader = DataLoader(test_data, batch_size=batch_size, num_workers=0, pin_memory=True)
 
+################################
 # Creating Models
 # ---------------
 # 
