@@ -165,7 +165,9 @@ print(model)
 # Forward Function
 # --------------------------------
 #
-# In the class implementation of the neural network we define a `forward` function`.
+# In the class implementation of the neural network we define a ``forward`` function.  
+# Then call the ``NeuralNetwork``class and assign the device. When training the model we will call ``model``
+# and pass the data (x) into the forward function and through each layer of our network.
 #
 #
     def forward(self, x):
