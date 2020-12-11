@@ -1,9 +1,12 @@
 """
-Build Model Tutorial
-============================
+Build the Neural Netowrk
+===================
 """
 
-##########################################
+#################################################################
+# Get Started Building the Model
+# -----------------
+#
 # The data has been loaded and transformed we can now build the model. 
 # We will leverage `torch.nn <https://pytorch.org/docs/stable/nn.html>`_ predefined layers that PyTorch has that can simplify our code.
 # 
@@ -109,6 +112,7 @@ print('Using {} device'.format(device))
 #
 # From the docs:
 # ``torch.nn.Flatten(start_dim: int = 1, end_dim: int = -1)``
+#
 # Here is an example using one of the training_data set items:
 tensor = training_data[0][0]
 print(tensor.size())
@@ -168,7 +172,7 @@ print(model)
 # --------------------------------
 #
 # In the class implementation of the neural network we define a ``forward`` function.  
-# Then call the ``NeuralNetwork``class and assign the device. When training the model we will call ``model``
+# Then call the ``NeuralNetwork`` class and assign the device. When training the model we will call ``model``
 # and pass the data (x) into the forward function and through each layer of our network.
 #
 #
