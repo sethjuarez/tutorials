@@ -1,13 +1,8 @@
+##################################################################
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
+
 """
-.. raw:: html
-
-    <div>
-        <a href="https://torchtutorialstaging.z5.web.core.windows.net/beginner/quickstart/tensor_tutorial.html">Tensors</a>
-    </div>
-
-.. raw:: html
-
-
 Tensors and Operations
 ----------------------
 **Tensor** is the basic computational unit in PyTorch. It is very
@@ -258,6 +253,4 @@ print(z.to("cpu", torch.double))
 # moving it from GPU anyway.
 #
 # Next learn how to load built in and custom `datasets with dataloaders <dataquickstart_tutorial.html>`_
-#
-# .. include:: /beginner_source/quickstart/qs_toc.txt
 #

@@ -1,3 +1,7 @@
+##################################################################
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
+
 """
 Transforms
 ===================
@@ -136,8 +140,4 @@ class_names = image_datasets['train'].classes
 
 ##################################################################
 # Next learn how to `build the model <buildmodel_tutorial.html>`_
-#
-
-##################################################################
-# .. include:: /beginner_source/quickstart/qs_toc.txt
 #

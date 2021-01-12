@@ -1,3 +1,7 @@
+###################################################
+# .. include:: /beginner_source/quickstart/qs_toc.txt
+#
+
 """
 .. raw:: html
 
@@ -209,5 +213,4 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 # 
 # Next: Learn more about how to `transform that data for training <transforms_tutorial.html>`_.
 #
-# .. include:: /beginner_source/quickstart/qs_toc.txt
-#
+
