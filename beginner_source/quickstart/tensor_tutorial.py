@@ -1,7 +1,3 @@
-##################################################################
-# .. include:: /beginner_source/quickstart/qs_toc.txt
-#
-
 """
 .. raw:: html
 
@@ -11,6 +7,7 @@
 
 .. raw:: html
 
+.. include:: /beginner_source/quickstart/qs_toc.txt
 
 Tensors and Operations
 ----------------------
