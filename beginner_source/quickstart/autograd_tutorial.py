@@ -1,7 +1,6 @@
 """
 .. include:: /beginner_source/quickstart/qs_toc.txt
 
-
 5. Automatic Differentiation with ``torch.autograd``
 =======================================
 
