@@ -3,15 +3,6 @@
 #
 
 """
-.. raw:: html
-
-    <div>
-        <a href="https://torchtutorialstaging.z5.web.core.windows.net/beginner/quickstart/tensor_tutorial.html">Tensors &gt; </a> 
-        <a href="https://torchtutorialstaging.z5.web.core.windows.net/beginner/quickstart/dataquickstart_tutorial.html">Datasets & Dataloaders</a>
-    </div>
-
-.. raw:: html
-
 Datasets & Dataloaders
 ===================
 """
