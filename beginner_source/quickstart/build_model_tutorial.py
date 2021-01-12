@@ -46,13 +46,12 @@ print('Using {} device'.format(device))
 # Define the Class
 # -------------------------
 #
-# The ``init`` function inherits from ``nn.Module`` which is the base class for 
-# building neural network modules. This function defines the layers in your neural network
+# Here we define the `NeuralNetwork` class which inherits from ``nn.Module`` which is the base class for 
+# building neural network modules. The ``init`` function defines the layers in the neural network
 # then it initializes the modules to be called in the ``forward`` function.
-#
-# In the class implementation of the neural network we define a ``forward`` function.  
-# Then call the ``NeuralNetwork`` class and assign the device. When training the model we will call ``model``
-# and pass the data (x) into the forward function and through each layer of our network.
+# Then we call the ``NeuralNetwork`` class and assign the device. When training 
+# the model we will call ``model`` and pass the data (x) into the forward function and 
+# through each layer of our network.
 #
 #
 
@@ -107,8 +106,8 @@ flattened_tensor.size()
 # `nn.Linear <https://pytorch.org/docs/stable/generated/torch.nn.Linear.html>`_ to add a linear layer to the model.
 # -------------------------------
 #
-# Now that we have flattened our tensor dimension we will apply a linear layer 
-# transform that will calculate/learn the weights and the bias.
+# Now that we have flattened our tensor dimension we will apply a linear layer. The linear layer is 
+# a module that applies a linear transformation on the input using it's stored weights and biases.
 #
 # From the docs:
 # 
