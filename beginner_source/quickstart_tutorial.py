@@ -30,7 +30,6 @@ Pytorch Quickstart Topics
 | 6. `Optimization Loop <quickstart/optimization_tutorial.html>`_
 | 7. `Save, Load and Use Model <quickstart/saveloadrun_tutorial.html>`_
 
-
 Working with data
 -----------------
 """
