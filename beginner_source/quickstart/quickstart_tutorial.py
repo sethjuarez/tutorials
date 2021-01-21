@@ -47,10 +47,11 @@ Working with data
 
 ######################################################################
 #
-# PyTorch has two basic data primitives: ``DataSet`` and ``DataLoader``.
-# The `torchvision.datasets` ``DataSet`` object includes a ``transforms`` mechanism to
+# PyTorch has two basic data primitives: ``torch.utils.data.DataSet`` that provides interface for linking and managing collections of data and 
+# ``torch.utils.data.DataLoader`` that is an iterator that loads a dataset for training.
+# The `torchvision.datasets` ``DataSet`` object enhances interface with functionality for handling images. It includes a ``transforms`` mechanism to
 # modify data in-place. Below is an example of how to load that data from the PyTorch open datasets and transform the data to a normalized tensor. 
-# This example is using the `torchvision.datasets` which is a subclass from the primitive `torch.utils.data.Dataset`. Note that the primitive dataset doesnt have the built in transforms param like the built in dataset in `torchvision.datasets.`
+# This example is using the `torchvision.datasets` which is a subclass from the primitive `torch.utils.data.Dataset`. Note that the primitive dataset doesnt have the built in ``transforms``` param like the built in dataset in `torchvision.datasets.`
 # For more details on the concepts introduced here check out `Tensors <tensor_tutorial.html>`_,
 # `DataSets & DataLoaders <dataquickstart_tutorial.html>`_,
 # and `Transforms <transforms_tutorial.html>`_. 
