@@ -84,7 +84,7 @@ plt.show()
 # Creating a Custom Dataset
 # -----------------
 #
-# To work with your own data, we need to implement a custom class that inherits from ``Dataset``. Let's look at a custom image dataset implementation. In this example, we have a number of images stored in a directory, and their labels stored separately in CSV annotation file. Below is the full example and we will break down whats happening in each function.
+# To work with your own data, we can implement a custom class that inherits from ``Dataset``. This custom class must implement three functions: `__init__`, `__len__`, and `__getitem__`. Let's look at a custom image dataset implementation. In this example, we have a number of images stored in a directory, and their labels stored separately in a CSV file. Here's what it looks like; in the following sections, we will break down what's happening in each function.
 #
 
 import os
@@ -135,7 +135,7 @@ from torch.utils.data import Dataset
 from torch.utils.data import DataLoader
 
 #################################################################
-# Init
+# __init__
 # -----------------
 #
 # The init function is used for all the first time operations when our Dataset is loaded. In this case we use it to load our annotation labels to memory and then keep track of the directory of our image file. Note that different types of data can take different init inputs. You are not limited to just an annotations file, directory path and transforms, but for images this is a standard practice.
@@ -149,8 +149,8 @@ from torch.utils.data import DataLoader
 # Example:
 # 
 
-def __init__(self, annotations_file, img_dir, transform=None):
-    self.img_labels = pd.read_csv(annotations_file)
+def __init__(self, labels_file, img_dir, transform=None):
+    self.img_labels = pd.read_csv(labels_file)
     self.img_dir = img_dir
     self.transform = transform
 
@@ -158,7 +158,7 @@ def __init__(self, annotations_file, img_dir, transform=None):
 # __len__
 # -----------------
 #
-# The __len__ function is needed to return the number of samples in our dataset. 
+# The __len__ function returns the number of samples in our dataset. 
 # 
 # Example:
 
@@ -209,4 +209,3 @@ dataloader = DataLoader(clothing, batch_size=4, shuffle=True, num_workers=0)
 # 
 # Next learn more about how to `transform data for training <transforms_tutorial.html>`_.
 #
-

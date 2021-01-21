@@ -61,9 +61,8 @@ print('Using {} device'.format(device))
 # Define the Class
 # -------------------------
 #
-# Here we define the `NeuralNetwork` class which inherits from ``nn.Module`` which is the base class for 
-# building neural network modules. The ``init`` function defines the layers in the neural network
-# then it initializes the modules to be called in the ``forward`` function.
+# First we define the `NeuralNetwork` class which inherits from ``nn.Module``, the base class for 
+# building all neural network modules in PyTorch. We use the ``__init__`` function to define and initialize the NN layers that will be then called in the module's ``forward`` function.
 # Then we call the ``NeuralNetwork`` class and assign the device. When training 
 # the model we will call ``model`` and pass the data (x) into the forward function and 
 # through each layer of our network.
@@ -86,14 +85,18 @@ class NeuralNetwork(nn.Module):
         return F.softmax(x, dim=1)
 
 model = NeuralNetwork().to(device)
-    
 print(model)
 
+input = torch.rand(5, 28, 28)
+
+# equivalent to model.forward(input)
+model(input)
+
 ##############################################
-# The Model Module Layers
+# Model Layers
 # -------------------------
 #
-# Lets break down each model layer in the FashionMNIST model. To illustrate it, we 
+# Lets break down each layer in the FashionMNIST model. To illustrate it, we 
 # will take a sample minibatch of 100 images of size 28x28 and see what happens to it as 
 # we pass it through the network. The code in the sections below would essentially explain 
 # what happens inside the ``forward`` method of our ``NeuralNetwork`` class. 
@@ -103,7 +106,7 @@ input_image = torch.rand(100,28,28)
 print(input_image.size())
 
 ##################################################
-# `nn.Flatten <https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html>`_ 
+# nn.Flatten
 # -----------------------------------------------
 #
 # First we call nn.Flatten to reduce tensor dimensions to one.
@@ -119,18 +122,14 @@ flat_image = flatten(input_image)
 print(flat_image.size())
 
 ##############################################
-# `nn.Linear <https://pytorch.org/docs/stable/generated/torch.nn.Linear.html>`_ to add a linear layer
+# nn.Linear 
 # -------------------------------
 #
-# Now that we have flattened our tensor dimension we will apply a linear layer. The linear layer is 
+# Now that we have flattened our tensor dimension we will pass our data through a `linear layer <https://pytorch.org/docs/stable/generated/torch.nn.Linear.html>`_. The linear layer is 
 # a module that applies a linear transformation on the input using it's stored weights and biases.
 #
-# From the docs:
-# 
-# ``torch.nn.Linear(in_features: int, out_features: int, bias: bool = True)``
-#
 
-layer1 = nn.Linear(28*28,512)
+layer1 = nn.Linear(in_features=28*28, out_features=512)
 hidden1 = layer1(flat_image)
 print(hidden1.size())
 
@@ -169,5 +168,5 @@ print(list(model.named_parameters())[0:2])
 
 ################################################
 #
-# Next learn more about how the `optimization loop works with this example <optimization_tutorial.html>`_.
+# Next learn more about `how to use automatic differentiation to train a neural network model <autograd_tutorial.html>`_.
 #

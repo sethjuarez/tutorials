@@ -35,8 +35,7 @@ ds = torchvision.datasets.FashionMNIST(
 #
 # We are using the built-in FashionMNIST dataset from the PyTorch library. 
 # For more info on the Datasets and Loaders check out `this <dataquickstart_tutorial.html>`_ section of the tutorial. 
-# The ``Train=True`` indicates we want to download the training dataset from the 
-# built-in datasets, ``Train=False`` indicates to download the testing dataset. 
+# The ``train=True`` argument indicates we want the training split of the dataset (``train=False`` downloads the test split instead). 
 # This way we have data partitioned out for training and testing within the provided PyTorch datasets. 
 # We will apply the same transforms to both the training and testing datasets.
 
@@ -60,30 +59,32 @@ classes = ["T-shirt/top", "Trouser", "Pullover", "Dress",
 # Below is the code to load the FashionMNIST dataset and apply the transforms:
 
 training_data = datasets.FashionMNIST(
-    'data', 
-    train=True, download=True,
+    "data",
+    train=True,
+    download=True,
     transform=transforms.ToTensor(),
     target_transform=transforms.Lambda(
         lambda y: torch.zeros(10, dtype=torch.float)
-        .scatter_(0, torch.tensor(y), value=1)))
+        .scatter_(0, torch.tensor(y), value=1)
+    )
+)
 
 ########################################
 # Here we define two transformations:
 #
 # * ``transform`` is the transformation we apply to features, in our case - to images. The dataset contains images in PIL format so we need to convert them to tensors using the ``ToTensor()`` transform.
-# * ``target_transform`` defines a transformation that is applied to labels. In our case label is a class number from 0 to 9, and we need to convert it to one-hot encoding.
+# * ``target_transform`` defines a transformation that is applied to labels in the dataset. Here, the  label is a class number from 0 to 9, and we need to convert it to one-hot encoding.
 
 #################################################
 # ToTensor()
 # -------------------------------
 #
-# `torchvision.transforms.ToTensor <https://pytorch.org/docs/stable/torchvision/transforms.html#torchvision.transforms.ToTensor>`_ transform is required to prepare an image for training. It takes the PIL image, converts it into a `tensor <tensor_tutorial.html>`_, and normalizes our data by scaling the image pixel intensity values to be between 0 and 1.
+# `transforms.ToTensor <https://pytorch.org/docs/stable/torchvision/transforms.html#torchvision.transforms.ToTensor>`_ transform is required to prepare an image for training. It takes the PIL image, converts it into a `tensor <tensor_tutorial.html>`_, and normalizes our data by scaling the image pixel intensity values to be between 0 and 1.
 #
-# .. note:: ToTensor only normalizes images that are in PIL mode of (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) or if the numpy.ndarray has dtype = np.uint8. In the other cases, tensors are returned without scaling.
 #
 
 ##############################################
-# Lambda Transform
+# Lambda Transforms
 # -------------------------------
 #
 # We use a **lambda transform** to turn the class number into one-hot encoding. This function takes y as an input and creates a zero tensor of size 10. Then it calls scatter `torch.Tensor.scatter_ class <https://pytorch.org/docs/stable/tensors.html#torch.Tensor.scatter_>`_ to take a value 1 and store it into the correct position of the zero vector defined by the class number.
@@ -92,14 +93,14 @@ target_transform = transforms.Lambda(lambda y: torch.zeros(
     10, dtype=torch.float).scatter_(dim=0, index=torch.tensor(y), value=1))
 
 ###############################################
-# Check out the other `TorchVision Transforms <https://pytorch.org/docs/stable/torchvision/transforms.html>`_
+# Check out more `torchvision transforms <https://pytorch.org/docs/stable/torchvision/transforms.html>`_
 #
 
 #####################################################
 # Compose
 # ------------------------
 #
-# In many cases, we need to perform several transformations on the data sequentially. ``transforms.compose`` allows us to string together different steps of transformations in a sequential order. We will see an example of using composition transform in the next section.
+# In many cases, we need to perform several transformations on the data sequentially. `transforms.Compose <https://pytorch.org/docs/stable/torchvision/transforms.html#torchvision.transforms.Compose>`_ allows us to string together different steps of transformations in a sequential order. We will see an example of using composition transform in the next section.
 
 
 ##############################################
