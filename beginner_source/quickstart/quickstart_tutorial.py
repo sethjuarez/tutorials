@@ -38,9 +38,20 @@ If you want to run the code locally on your machine you will need some tools you
 may or may not have installed already.
 Below are some good tool options for configuring local development or for more detailed instructions check out `get started locally <https://pytorch.org/get-started/locally/>`_.
 
-- `Visual Studio Code <https://code.visualstudio.com/Download>`_ : You can open run python code in Visual Studio Code or open a Jupyter Notebook in VS Code.
+- `Visual Studio Code <https://code.visualstudio.com/Download>`_  and `Python Extension <https://marketplace.visualstudio.com/items?itemName=ms-python.python>`_ : You can open run python code in Visual Studio Code or open a Jupyter Notebook in VS Code. Tip: look at git repo `.devcontainer` settings for suggestion VSCode settings.
 
-- `Anaconda for Package Management <https://www.anaconda.com/products/individual>`_ : You will need to install the packages using either ``pip`` or ``conda`` to run the code locally.
+- Optionally install `Pylance Extension https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance`_ : It would provide Python Intellinse with rich information 
+
+- `Anaconda for Package Management <https://www.anaconda.com/products/individual>`_ : You will need to install the packages using either ``pip`` or ``conda`` to run the code locally. Tip: For this tutorial look at git repo `.devcontainer` requirements.txt to install required libraries. For ex:
+```
+ pip install --no-cache-dir \
+                    pylint \
+                    matplotlib \
+                    ipykernel \
+                    jupyter 
+    -f https://download.pytorch.org/whl/torch_stable.html
+```
+
 
 Working with data
 -----------------
@@ -136,6 +147,7 @@ print(model)
 # several times, and each run is refered to as an **epoch**. During each run, we present data 
 # in **minibatches**, and for each minibatch compute gradients and correct parameters of the model 
 # according to back propagation algorithm. Read more about the `Optimization Loop <optimization_tutorial.html>`_.
+# ``torch.optim`` shown below is a package implementing various optimization algorithms.
 #
 
 # Cost function used to determine best parameters.
@@ -143,6 +155,7 @@ cost = torch.nn.BCELoss()
 
 # This is used to create optimal parameters.
 learning_rate = 1e-3
+# Adam optimization algorithm
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
 # Create the training function.
@@ -197,13 +210,13 @@ print('Done!')
 # -------------
 # 
 # PyTorch has different ways you can save your model. One way is to serialize the internal model state to a file. Another would be to use the built-in `ONNX <https://github.com/onnx/tutorials>`_ support.
-# 
+#
 
 torch.save(model.state_dict(), 'model.pth')
 print('Saved PyTorch Model to model.pth')
 
-# Save to ONNX, create dummy variable to traverse graph
-
+# Save to ONNX Export process must traverse the execution graph to produce a persisted ONNX model 
+# create dummy variable of the appropriate size to traverse graph
 x = torch.randint(255, (1, 28*28), dtype=torch.float).to(device) / 255
 onnx.export(model, x, 'model.onnx')
 print('Saved onnx model to model.onnx')
@@ -216,7 +229,9 @@ print('Saved onnx model to model.onnx')
 # parameters includes re-creating the model shape and then loading
 # the state dictionary. Once loaded the model can be used for either
 # retraining or inference purposes (in this example it is used for
-# inference). Check out more details on `saving, loading and running models with PyTorch <saveloadrun_tutorial.html>`_
+# inference). After doing the inference, we obtain a tensor of probabilities for the classes, 
+# and we get the index of most probable class by calling .argmax().
+# Check out more details on `saving, loading and running models with PyTorch <saveloadrun_tutorial.html>`_
 #
 
 loaded_model = NeuralNetwork()
