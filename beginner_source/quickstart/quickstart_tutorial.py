@@ -77,7 +77,7 @@ from torchvision.transforms import ToTensor, Lambda, Compose
 import matplotlib.pyplot as plt
 
 ######################################################################
-# The ``torchvision.datasets`` module contains ``Dataset`` objects for many real-world vision data like ImageNet,
+# The ``torchvision.datasets`` module contains ``Dataset`` objects for many real-world vision data like 
 # CIFAR, COCO (`full list here <https://pytorch.org/docs/stable/torchvision/datasets.html>`_). In this tutorial, we
 # use the FashionMNIST dataset. Every TorchVision ``Dataset`` includes two arguments: ``transform`` and
 # ``target_transform`` to modify the samples and labels respectively.
