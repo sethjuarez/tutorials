@@ -38,11 +38,13 @@ Datasets & Dataloaders
 # Fashion-MNIST is a dataset of Zalando’s article images consisting of of 60,000 training examples and 10,000 test examples.
 # Each example is comprised of a 28×28 grayscale image, associated with a label from one of 10 classes.
 #
-# To load the `FashionMNIST Dataset <https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist>`_ we need to provide the following three parameters:
-#  - ``root`` is the path where the train/test data is stored.
-#  - ``train`` includes the training dataset.
-#  - ``download=True`` downloads the data from the internet if it's not available at root.
-#
+# To load the `FashionMNIST Dataset <https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist>`_ 
+# we need to provide the following three parameters:
+#  - ``root`` is the path where the train/test data is stored,
+#  - ``train`` specifies training or test dataset,
+#  - ``download=True`` downloads the data from the internet if it's not available at ``root``.
+#  - ``transform`` and ``target_transform`` specify the feature and label transformations (more on this in the next section)
+
 
 import torch
 from torch.utils.data import Dataset
@@ -101,8 +103,8 @@ plt.show()
 #
 
 #################################################################
-# Creating a Custom Dataset
-# -----------------
+# Creating a Custom Dataset for your files
+# ---------------------------------------------------
 #
 # To work with our own data, we can implement a custom class that inherits from ``Dataset``. 
 # This custom class must implement three functions: `__init__`, `__len__`, and `__getitem__`. 
@@ -143,7 +145,8 @@ class CustomImageDataset(Dataset):
 # -----------------
 #
 # The __init__ function is run once when instantiating the Dataset object. We initialize
-# the directory containing the images, the annotations file, and both transforms (if). 
+# the directory containing the images, the annotations file, and both transforms (covered 
+# in more detail in the next section). 
 #
 # The labels.csv file looks like: ::
 #
@@ -231,6 +234,9 @@ plt.imshow(img, cmap="gray")
 plt.show()
 print(f"Label: {label}")
 
+######################################################################
+# --------------
+#
 
 #################################################################
 # Further Reading

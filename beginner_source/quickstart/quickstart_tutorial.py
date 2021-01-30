@@ -270,18 +270,9 @@ model.load_state_dict(torch.load("model.pth"))
 #############################################################
 # This model can now be used to make predictions.
 
-loaded_model.eval()
+model.eval()
 x, y = test_data[0][0], test_data[0][1]
 with torch.no_grad():
-    pred = loaded_model(x)
+    pred = model(x)
     predicted, actual = classes[pred[0].argmax(0)], classes[y.argmax(0)]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')
-
-
-#############################################################
-# Read more on `saving, loading and running models with PyTorch <saveloadrun_tutorial.html>`_
-#
-#
-# 
-#
-
