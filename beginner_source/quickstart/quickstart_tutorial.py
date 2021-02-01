@@ -165,7 +165,7 @@ print(model)
 #
 
 #####################################################################
-# Training the Model 
+# Optimizing the Model Parameters
 # ----------------------------------------
 # To train a model, we need a `loss function <https://pytorch.org/docs/stable/nn.html#loss-functions>`_
 # and an `optimizer <https://pytorch.org/docs/stable/optim.html>`_. 
