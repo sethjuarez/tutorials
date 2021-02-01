@@ -38,8 +38,7 @@ Datasets & Dataloaders
 # Fashion-MNIST is a dataset of Zalando’s article images consisting of of 60,000 training examples and 10,000 test examples.
 # Each example is comprised of a 28×28 grayscale image, associated with a label from one of 10 classes.
 #
-# To load the `FashionMNIST Dataset <https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist>`_ 
-# we need to provide the following three parameters:
+# We load the `FashionMNIST Dataset <https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist>`_ with the following parameters:
 #  - ``root`` is the path where the train/test data is stored,
 #  - ``train`` specifies training or test dataset,
 #  - ``download=True`` downloads the data from the internet if it's not available at ``root``.
@@ -53,12 +52,18 @@ from torchvision.transforms import ToTensor, Lambda
 import matplotlib.pyplot as plt
 
 
-clothing = datasets.FashionMNIST(
+training_data = datasets.FashionMNIST(
     root="data",
     train=True,
     download=True,
-    transform=ToTensor(),
-    target_transform=None
+    transform=ToTensor()
+)
+
+test_data = datasets.FashionMNIST(
+    root="data",
+    train=False,
+    download=True,
+    transform=ToTensor()
 )
 
 
@@ -66,8 +71,8 @@ clothing = datasets.FashionMNIST(
 # Iterating and Visualizing the Dataset
 # -----------------
 #
-# Once we have the ``clothing`` dataset, we can index it manually like a list: ``clothing[index]``. 
-# Then use ``matplotlib`` to visualize the dataset.
+# We can index ``Datasets`` manually like a list: ``training_data[index]``. 
+# We use ``matplotlib`` to visualize some samples in our training data.
 
 labels_map = {
     0: "T-Shirt",
@@ -84,8 +89,8 @@ labels_map = {
 figure = plt.figure(figsize=(8, 8))
 cols, rows = 3, 3
 for i in range(1, cols * rows + 1):
-    sample_idx = torch.randint(len(clothing), size=(1,)).item()
-    img, label = clothing[sample_idx]
+    sample_idx = torch.randint(len(training_data), size=(1,)).item()
+    img, label = training_data[sample_idx]
     figure.add_subplot(rows, cols, i)
     plt.title(labels_map[label])
     plt.axis("off")
@@ -142,7 +147,7 @@ class CustomImageDataset(Dataset):
 
 #################################################################
 # __init__
-# -----------------
+# ^^^^^^^^^^^^^^^^^^^^
 #
 # The __init__ function is run once when instantiating the Dataset object. We initialize
 # the directory containing the images, the annotations file, and both transforms (covered 
@@ -165,7 +170,7 @@ def __init__(self, annotations_file, img_dir, transform=None, target_transform=N
 
 #################################################################
 # __len__
-# -----------------
+# ^^^^^^^^^^^^^^^^^^^^
 #
 # The __len__ function returns the number of samples in our dataset.
 #
@@ -178,7 +183,7 @@ def __len__(self):
 
 #################################################################
 # __getitem__
-# -----------------
+# ^^^^^^^^^^^^^^^^^^^^
 #
 # The __getitem__ function loads and returns a sample from the dataset at the given index ``idx``. 
 # Based on the index, it identifies the image's location on disk, converts that to a tensor using ``read_image``, retrieves the 
@@ -213,10 +218,11 @@ def __getitem__(self, idx):
 
 from torch.utils.data import DataLoader
 
-dataloader = DataLoader(clothing, batch_size=64, shuffle=True)
+train_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
 
 ###########################
-# Iterate through the Dataset
+# Iterate through the DataLoader
 # --------------------------
 #
 # We have loaded that dataset into the ``Dataloader`` and can iterate through the dataset as needed.
@@ -225,7 +231,7 @@ dataloader = DataLoader(clothing, batch_size=64, shuffle=True)
 # the data loading order, take a look at `Samplers <https://pytorch.org/docs/stable/data.html#data-loading-order-and-sampler>`_).
 
 # Display image and label.
-train_features, train_labels = next(iter(dataloader))
+train_features, train_labels = next(iter(train_dataloader))
 print(f"Feature batch shape: {train_features.size()}")
 print(f"Labels batch shape: {train_labels.size()}")
 img = train_features[0].squeeze()
@@ -240,7 +246,7 @@ print(f"Label: {label}")
 
 #################################################################
 # Further Reading
-# ~~~~~~~~~~~~~~~~~
+# --------------
 # - `torch.utils.data API <https://pytorch.org/docs/stable/data.html>`_
 
 
