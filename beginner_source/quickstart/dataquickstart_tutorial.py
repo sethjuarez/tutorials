@@ -36,13 +36,13 @@ Datasets & Dataloaders
 #
 # Here is an example of how to load the `Fashion-MNIST <https://research.zalando.com/welcome/mission/research-projects/fashion-mnist/>`_ dataset from TorchVision.
 # Fashion-MNIST is a dataset of Zalando’s article images consisting of of 60,000 training examples and 10,000 test examples.
-# Each example is comprised of a 28×28 grayscale image, associated with a label from one of 10 classes.
+# Each example comprises a 28×28 grayscale image and an associated label from one of 10 classes.
 #
 # We load the `FashionMNIST Dataset <https://pytorch.org/docs/stable/torchvision/datasets.html#fashion-mnist>`_ with the following parameters:
 #  - ``root`` is the path where the train/test data is stored,
 #  - ``train`` specifies training or test dataset,
 #  - ``download=True`` downloads the data from the internet if it's not available at ``root``.
-#  - ``transform`` and ``target_transform`` specify the feature and label transformations (more on this in the next section)
+#  - ``transform`` and ``target_transform`` specify the feature and label transformations
 
 
 import torch
