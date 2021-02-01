@@ -65,4 +65,4 @@ target_transform = Lambda(lambda y: torch.zeros(
 #################################################################
 # Further Reading
 # ~~~~~~~~~~~~~~~~~
-# - `torchvision.tranasforms API <https://pytorch.org/vision/stable/transforms.html>`_
+# - `torchvision.transforms API <https://pytorch.org/vision/stable/transforms.html>`_
