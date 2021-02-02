@@ -9,12 +9,6 @@ Welcome to PyTorch Tutorials
 .. Add callout items below this line
 
 .. customcalloutitem::
-   :description: The 60 min blitz is the most common starting point and provides a broad view on how to use PyTorch. It covers the basics all the way to constructing deep neural networks.
-   :header: New to PyTorch?
-   :button_link: beginner/deep_learning_60min_blitz.html
-   :button_text: Start 60-min blitz
-
-.. customcalloutitem::
    :description: In this quickstart we will cover the basics of machine learning and how to apply them with PyTorch. You will be introduced to the complete ML workflow using PyTorch with links to learn more at each step!
    :header: Learn the Basics
    :button_link:  beginner/quickstart/quickstart_tutorial.html
@@ -57,25 +51,12 @@ Welcome to PyTorch Tutorials
 .. Learning PyTorch
 
 .. customcarditem::
-   :header: Deep Learning with PyTorch: A 60 Minute Blitz
-   :card_description: Understand PyTorch’s Tensor library and neural networks at a high level.
-   :image: _static/img/thumbnails/cropped/60-min-blitz.png
-   :link: beginner/deep_learning_60min_blitz.html
-   :tags: Getting-Started
-
-.. customcarditem::
    :header: Learn the Basics
    :card_description: Get started with a step-by-step guide to building neural networks with PyTorch.
    :image: _static/img/thumbnails/cropped/60-min-blitz.png
    :link: beginner/quickstart/quickstart_tutorial.html
    :tags: Getting-Started
 
-.. customcarditem::
-   :header: Learning PyTorch with Examples
-   :card_description: This tutorial introduces the fundamental concepts of PyTorch through self-contained examples.
-   :image: _static/img/thumbnails/cropped/learning-pytorch-with-examples.png
-   :link: beginner/pytorch_with_examples.html
-   :tags: Getting-Started
 
 .. customcarditem::
    :header: What is torch.nn really?
@@ -452,7 +433,6 @@ Additional Resources
 
    beginner/quickstart/quickstart_tutorial
    beginner/deep_learning_60min_blitz
-   beginner/pytorch_with_examples
    beginner/nn_tutorial
    intermediate/tensorboard_tutorial
 
