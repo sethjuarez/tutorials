@@ -131,6 +131,8 @@ DDP materials are listed below:
    tutorial.
 3. The `Launching and configuring distributed data parallel applications <https://github.com/pytorch/examples/blob/master/distributed/ddp/README.md>`__
    document shows how to use the DDP launching script.
+4. `PyTorch Distributed Trainer with Amazon AWS <aws_distributed_training_tutorial.html>`__
+   demonstrates how to use DDP on AWS.
 
 TorchElastic
 ~~~~~~~~~~~~

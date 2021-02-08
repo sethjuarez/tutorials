@@ -14,8 +14,7 @@ Tensors
 Tensors are a specialized data structure that are very similar to arrays and matrices. 
 In PyTorch, we use tensors to encode the inputs and outputs of a model, as well as the model’s parameters.
 
-Tensors are similar to NumPy’s ndarrays, except that tensors can run on GPUs or other hardware accelerators. In fact, tensors and
-NumPy arrays can often share the same underlying memory, eliminating the need to copy data (see :ref:`bridge-to-np-label`). Tensors 
+Tensors are similar to NumPy’s ndarrays, except that tensors can run on GPUs or other hardware accelerators. Tensors 
 are also optimized for automatic differentiation (we'll see more about that later in the `Autograd <autograd_tutorial.html>`__ 
 section). If you’re familiar with ndarrays, you’ll be right at home with the Tensor API. If not, follow along!
 """
@@ -136,23 +135,18 @@ print(tensor)
 t1 = torch.cat([tensor, tensor, tensor], dim=1)
 print(t1)
 
-
 ######################################################################
 # **Arithmetic operations**
 
 # This computes the matrix multiplication between two tensors. y1, y2, y3 will have the same value
 y1 = tensor @ tensor.T
 y2 = tensor.matmul(tensor.T)
-
-y3 = torch.rand_like(tensor)
 torch.matmul(tensor, tensor.T, out=y3)
 
 
 # This computes the element-wise product. z1, z2, z3 will have the same value
 z1 = tensor * tensor
 z2 = tensor.mul(tensor)
-
-z3 = torch.rand_like(tensor)
 torch.mul(tensor, tensor, out=z3)
 
 

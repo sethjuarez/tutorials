@@ -47,7 +47,7 @@ PATH = DATA_PATH / "mnist"
 
 PATH.mkdir(parents=True, exist_ok=True)
 
-URL = "https://github.com/pytorch/tutorials/raw/master/_static/"
+URL = "http://deeplearning.net/data/mnist/"
 FILENAME = "mnist.pkl.gz"
 
 if not (PATH / FILENAME).exists():

@@ -240,4 +240,3 @@ print("\nCall after zeroing gradients\n", inp.grad)
 # Further Reading
 # ~~~~~~~~~~~~~~~~~
 # - `Autograd Mechanics <https://pytorch.org/docs/stable/notes/autograd.html>`_
-

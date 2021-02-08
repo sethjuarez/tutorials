@@ -80,7 +80,7 @@ print(model)
 # Calling the model on the input returns a 10-dimensional tensor with raw predicted values for each class.
 # We get the prediction probabilities by passing it through an instance of the ``nn.Softmax`` module.
 
-X = torch.rand(1, 28, 28, device=device)
+X = torch.rand(1, 28, 28)
 logits = model(X) 
 pred_probab = nn.Softmax(dim=1)(logits)
 y_pred = pred_probab.argmax(1)
@@ -140,7 +140,6 @@ hidden1 = nn.ReLU()(hidden1)
 print(f"After ReLU: {hidden1}")
 
 
-
 #################################################
 # nn.Sequential
 # ^^^^^^^^^^^^^^^^^^^^^^
@@ -180,20 +179,13 @@ pred_probab = softmax(logits)
 # In this example, we iterate over each parameter, and print its size and a preview of its values. 
 #
 
-
 print("Model structure: ", model, "\n\n")
 
 for name, param in model.named_parameters():
     print(f"Layer: {name} | Size: {param.size()} | Values : {param[:2]} \n")
 
-######################################################################
-# --------------
-#
 
 #################################################################
 # Further Reading
-# --------------
+# ~~~~~~~~~~~~~~~~~
 # - `torch.nn API <https://pytorch.org/docs/stable/nn.html>`_
-
-
-
